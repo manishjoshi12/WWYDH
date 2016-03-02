@@ -1,0 +1,21 @@
+<div id="custom-bootstrap-menu" class="navbar navbar-default" role="navigation" style="background: transparent; border: 0;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to 'WWYDH', root_path, class: "navbar-brand" %>
+      <button type="button" class="navbar-toggle" data-toggle="collapse"
+      data-target=".navbar-menubuilder">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse navbar-menubuilder">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'About', about_path %></li>
+        <li><%= link_to 'Contact Us', contact_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>
