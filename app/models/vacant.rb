@@ -3,4 +3,3 @@ class Vacant < ActiveRecord::Base
 		Vacant.new(vacant_params)
 	end
 end
-

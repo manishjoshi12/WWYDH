@@ -11,6 +11,8 @@ gem 'turbolinks',           '2.3.0'
 gem 'jbuilder',             '2.2.3'
 gem 'pg',                   '0.18.4'
 gem 'sdoc',                 '0.4.0', group: :doc
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 
 
 group :development, :test do
