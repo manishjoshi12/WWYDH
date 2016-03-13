@@ -1,0 +1,9 @@
+<h1>Vacants</h1>
+
+<%= @vacants.each do | vacant | %>
+	<h3><%= vacant.fulladdress %></h3>
+	<p> <%= vacant.policedistrict %></p>
+	<hr>
+	<hr>
+<% end %>
+
