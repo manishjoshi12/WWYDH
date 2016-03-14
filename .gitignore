@@ -4,5 +4,4 @@ log
 =======
 # Ignore all logfiles and tempfiles.
 /log/*.log
-/tmp
 >>>>>>> 9bd6920a67b178544d6cc16372e0bfe53a66ae22
