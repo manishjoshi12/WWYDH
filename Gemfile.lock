@@ -224,8 +224,11 @@ DEPENDENCIES
   turbolinks (= 2.3.0)
   uglifier (= 2.5.3)
   web-console (= 2.0.0.beta3)
+<<<<<<< HEAD
   will_paginate
   will_paginate-bootstrap
 
 BUNDLED WITH
    1.11.2
+=======
+>>>>>>> heroku/master
