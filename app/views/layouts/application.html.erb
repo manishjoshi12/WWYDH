@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= yield :title %></title>
+  <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag 'application', media: 'all',
                           'data-turbolinks-track' => true %>
   <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'
@@ -12,6 +12,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="keywords" content="What, Would, You, Do, Here" />
+  <%= render 'layouts/shim' %>
 </head>
 <body>
 
