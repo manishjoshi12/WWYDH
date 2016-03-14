@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20160313135332) do
     t.boolean "isvolunteer",             default: false, null: false
   end
 
-  create_table "vacants", id: false, force: :cascade do |t|
+  create_table "vacants", id: :bigserial, force: :cascade do |t|
     t.string  "blocklot",        limit: 255
     t.string  "fulladdress",     limit: 255
     t.string  "neighborhood",    limit: 255

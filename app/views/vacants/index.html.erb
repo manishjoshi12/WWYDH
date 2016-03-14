@@ -6,9 +6,16 @@
 next_label: "Next &rarr;", renderer: BootstrapPagination::Rails %>
 
 <% @vacants.each do |vacant| %>
-	<h3><%= vacant.fulladdress %></h3>
-	<p> <%= vacant.policedistrict %></p>
 	<hr>
+	<h3><%= vacant.fulladdress %></h3>
+	<h5><%= link_to "View Property", vacant_path(id: vacant) %></h5>
+	<p>
+		ID: <%= vacant.id %><br>
+		Block/Lot: <%= vacant.blocklot %><br>
+		Neighborhood: <%= vacant.neighborhood %><br>
+		Police District: <%= vacant.policedistrict %><br>
+		Council District: <%= vacant.councildistrict %>
+	</p>
 	<hr>
 <% end %>
 
