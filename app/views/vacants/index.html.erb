@@ -5,7 +5,7 @@
 <%= will_paginate @vacants, previous_label: "&larr; Prev",
 next_label: "Next &rarr;", renderer: BootstrapPagination::Rails %>
 
-<% @vacants.each do |vacant| %>
+<!-- <% @vacants.each do |vacant| %>
 	<hr>
 	<h3><%= vacant.fulladdress %></h3>
 	<h5><%= link_to "View Property", vacant_path(id: vacant) %></h5>
@@ -17,7 +17,34 @@ next_label: "Next &rarr;", renderer: BootstrapPagination::Rails %>
 		Council District: <%= vacant.councildistrict %>
 	</p>
 	<hr>
-<% end %>
+<% end %> -->
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+			<th>ID</th>
+      <th>Address</th>
+      <th>Block/Lot</th>
+			<th>Neighborhood</th>
+			<th>Police District</th>
+			<th>Council District</th>
+    </tr>
+  </thead>
+  <tbody>
+		<% @vacants.each do |vacant| %>
+	    <tr>
+	      <th scope="row"><%= vacant.id %></th>
+	      <td>
+					<%= link_to "#{vacant.fulladdress}", vacant_path(id: vacant.id) %>
+				</td>
+	      <td><%= vacant.blocklot %></td>
+	      <td><%= vacant.neighborhood %></td>
+				<td><%= vacant.policedistrict %></td>
+				<td><%= vacant.councildistrict %></td>
+	    </tr>
+		<% end %>
+  </tbody>
+</table>
 
 <%= will_paginate @vacants, previous_label: "&larr; Prev",
 next_label: "Next &rarr;", renderer: BootstrapPagination::Rails %>
