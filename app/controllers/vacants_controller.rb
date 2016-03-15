@@ -1,7 +1,15 @@
 class VacantsController < ApplicationController
+	# def index
+	# 	@vacants = Vacant.all.paginate(page: params[:page], per_page: 10)
+	# end
+
 	def index
-		@vacants = Vacant.all.paginate(page: params[:page], per_page: 10)
-	end
+    if params[:search]
+      @vacants = Vacant.search(params[:search]).order("id DESC").paginate(page: params[:page], per_page: 10)
+    else
+      @vacants = Vacant.order("id DESC").paginate(page: params[:page], per_page: 10)
+    end
+  end
 
 	def show
 		@vacant = Vacant.find(params[:id])
