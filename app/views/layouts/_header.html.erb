@@ -2,6 +2,9 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <%= link_to 'WWYDH', root_path, class: "navbar-brand" %>
+      
+
+
       <button type="button" class="navbar-toggle" data-toggle="collapse"
       data-target=".navbar-menubuilder">
       <span class="sr-only">Toggle navigation</span>
@@ -15,7 +18,21 @@
       <li><%= link_to 'Home', root_path %></li>
       <li><%= link_to 'About', about_path %></li>
       <li><%= link_to 'Contact Us', contact_path %></li>
+      <% if logged_in? === nil %>
+      <li><%= link_to 'Login', login_path %>
+      <% end %>
+      <% if logged_in? %>
+      <li><%= link_to 'Profile', profile_path %>
+      <li><%= link_to 'Logout', logout_path, method: :delete %>
+      <% end %>
+
     </ul>
   </div>
 </div>
 </div>
+
+
+<% if logged_in? %>
+        <div style='float: right';>Logged in as <%= current_user.firstname %> <%= current_user.lastname %>
+        </div>
+        <% end %>
