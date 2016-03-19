@@ -11,16 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160313135332) do
+ActiveRecord::Schema.define(version: 20160318213420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "users", primary_key: "user_id", force: :cascade do |t|
-    t.string  "firstname",   limit: 255
-    t.string  "lastname",    limit: 255
-    t.boolean "isadmin",                 default: false, null: false
-    t.boolean "isvolunteer",             default: false, null: false
+    t.string  "firstname",       limit: 255
+    t.string  "lastname",        limit: 255
+    t.boolean "isadmin",                     default: false, null: false
+    t.boolean "isvolunteer",                 default: false, null: false
+    t.string  "email"
+    t.string  "password_digest"
   end
 
   create_table "vacants", id: :bigserial, force: :cascade do |t|
