@@ -1,5 +1,5 @@
 class VacantsController < ApplicationController
-	
+	skip_before_action :ensure_login, only: [:index, :show]
 	# def index
 	# 	@vacants = Vacant.all.paginate(page: params[:page], per_page: 10)
 	# end
