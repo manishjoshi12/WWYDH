@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
 
+  
+
   get '/about' => 'static_pages#about'
   get '/contact' => 'static_pages#contact'
   get '/register' => 'static_pages#register'
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   resources :vacants
   resources :sessions, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create]
 
   get "/login" => "sessions#new", as: "login"
   delete "/logout" => "sessions#destroy", as: "logout"
