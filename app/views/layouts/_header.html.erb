@@ -1,38 +1,34 @@
-<div id="custom-bootstrap-menu" class="navbar navbar-default" role="navigation" style="background: transparent; border: 0;">
+<div id="custom-bootstrap-menu" class="navbar navbar-default" role="navigation"
+                                style="background: transparent; border: 0;">
   <div class="container-fluid">
     <div class="navbar-header">
       <%= link_to 'WWYDH', root_path, class: "navbar-brand" %>
-      
-
-
       <button type="button" class="navbar-toggle" data-toggle="collapse"
-      data-target=".navbar-menubuilder">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-  </div>
-  <div class="collapse navbar-collapse navbar-menubuilder">
-    <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to 'Home', root_path %></li>
-      <li><%= link_to 'About', about_path %></li>
-      <li><%= link_to 'Contact Us', contact_path %></li>
-      <% if logged_in? === nil %>
-      <li><%= link_to 'Login', login_path %>
-      <% end %>
-      <% if logged_in? %>
-      <li><%= link_to 'Profile', profile_path %>
-      <li><%= link_to 'Logout', logout_path, method: :delete %>
-      <% end %>
-
-    </ul>
+              data-target=".navbar-menubuilder">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse navbar-menubuilder">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'About', about_path %></li>
+        <li><%= link_to 'Contact Us', contact_path %></li>
+        <% if logged_in? %>
+          <li><%= link_to 'Profile', profile_path %></li>
+          <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Login', login_path %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
-</div>
-
 
 <% if logged_in? %>
-        <div style='float: right';>Logged in as <%= current_user.firstname %> <%= current_user.lastname %>
-        </div>
-        <% end %>
+  <div style='float: right'>
+    Logged in as <%= "#{current_user.firstname} #{current_user.lastname}" %>
+  </div>
+<% end %>
