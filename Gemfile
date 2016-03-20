@@ -13,6 +13,7 @@ gem 'pg',                   '0.18.4'
 gem 'sdoc',                 '0.4.0', group: :doc
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+gem "font-awesome-rails"
 
 
 group :development, :test do

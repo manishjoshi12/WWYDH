@@ -1,7 +1,24 @@
-<h1>Login</h1>
-<%= form_for(:user, url: sessions_path) do |f|%>
-	<div class = "field"><%= f.label :email %> <br/> <%= f.text_field :email %> </div>
-	<div class="field"><%= f.label :password %> <br/> <%= f.password_field :password %> </div>
+<% provide(:title, 'Login') %>
 
-	<div class = "actions"><%= f.submit "login" %></div>
-	<% end %> 
+<div class="col-sm-4 col-sm-offset-4">
+
+	<h1 class="text-center">Login</h1>
+
+	<!-- <hr> -->
+	<br>
+
+	<%= form_for(:user, url: sessions_path) do |f| %>
+		<div class="form-group">
+			<%= f.label :email %>
+			<%= f.text_field :email, class: "form-control" %>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :password %>
+			<%= f.password_field :password, class: "form-control" %>
+		</div>
+
+		<%= f.submit "Submit", class: "btn btn-block btn-primary" %>
+	<% end %>
+
+</div>
