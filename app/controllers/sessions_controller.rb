@@ -11,14 +11,20 @@ class SessionsController < ApplicationController
 
   	if user && user.authenticate(password)
   		session[:user_id] = user.id
-  		redirect_to root_path, notice: "Logged in successfully"
+      flash[:success] = 'Login successful'
+      redirect_to root_path
+  		# redirect_to root_path, notice: "Logged in successfully"
   	else
-  		redirect_to login_path, alert: "Invalid email/passowrd combination"
+      flash.now[:danger] = 'Invalid email/password combination'
+      render 'new'
+  		# redirect_to login_path, alert: "Invalid email/passowrd combination"
   	end
   end
 
   def destroy
   	reset_session #wipe the session clean
-  	redirect_to login_path, notice: "You have been logged out"
+    flash[:success] = 'You have successfully logged out.'
+    redirect_to login_path
+  	# redirect_to login_path, notice: "You have been logged out"
   end
 end
