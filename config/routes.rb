@@ -14,7 +14,12 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   resources :vacants
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] do
+      member do
+        get :confirm_email
+      end
+    end
+    
 
   get "/login" => "sessions#new", as: "login"
   delete "/logout" => "sessions#destroy", as: "logout"
