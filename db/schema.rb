@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160320195030) do
+ActiveRecord::Schema.define(version: 20160321200526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "projects", force: :cascade do |t|
+    t.integer  "stage"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "vacant_id"
+  end
+
+  add_index "projects", ["vacant_id"], name: "index_projects_on_vacant_id", using: :btree
 
   create_table "users", primary_key: "user_id", force: :cascade do |t|
     t.string  "firstname",       limit: 255
@@ -37,4 +48,5 @@ ActiveRecord::Schema.define(version: 20160320195030) do
     t.date    "noticedate"
   end
 
+  add_foreign_key "projects", "vacants"
 end
