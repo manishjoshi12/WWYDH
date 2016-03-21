@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
 
- skip_before_action :ensure_login, only: [:new, :create, :confirm_email]
+ skip_before_action :ensure_login, only: [:index, :new, :create, :confirm_email]
+
+  def index
+    @users = User.all
+  end
 
   def new
   	@user = User.new
@@ -28,8 +32,6 @@ class UsersController < ApplicationController
       redirect_to root_url
     end
   end
-
-
 
 	private
 

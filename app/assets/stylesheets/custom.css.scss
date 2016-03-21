@@ -100,3 +100,13 @@ input {
   margin-top: 45px;
   @include box_sizing;
 }
+
+ul {
+  list-style-type: none;
+}
+
+#links_from_home {
+  border: 1px solid lightgrey;
+  margin: 0;
+  padding: 0;
+}

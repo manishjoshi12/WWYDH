@@ -1,0 +1,17 @@
+<% provide(:title, 'All Projects') %>
+
+<h1>View All Projects</h1>
+
+<br>
+
+<hr>
+
+<% @projects.each do |p| %>
+  <%= link_to p do %>
+    <h3><%= p.title %></h3>
+  <% end %>
+  <p>
+    <%= p.description %>
+  </p>
+  <hr>
+<% end %>
