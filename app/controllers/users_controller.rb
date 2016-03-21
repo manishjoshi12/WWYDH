@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def confirm_email
     user = User.find_by_confirm_token(params[:id])
-    if user_params
+    if user
       user.email_activate
       flash[:success] = "Welcome to WWYDH! Your accout has been confirmed."
       redirect_to root_url
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.permit(:firstname, :lastname, :email, :password,
+		params.require(:user).permit(:firstname, :lastname, :email, :password,
                                  :password_confirmation)
 	end
 
