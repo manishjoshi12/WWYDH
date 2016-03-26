@@ -3,46 +3,58 @@
 <h1>Vacants</h1>
 
 <br>
-<%= render 'layouts/simple_search' %>
-<br>
 
-<div class="text-center">
-  <%= page_entries_info @vacants, model: 'location' %>
+<div class="row">
+  <div class="text-center">
+    <%= page_entries_info @vacants, model: 'location' %>
+  </div>
+  <hr>
 </div>
 
-<hr>
+<div class="row">
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-			<th>ID</th>
-      <th>Address</th>
-      <th>Block/Lot</th>
-			<th>Neighborhood</th>
-			<th>Police District</th>
-			<th>Council District</th>
-    </tr>
-  </thead>
-  <tbody>
-		<% @vacants.each do |vacant| %>
-	    <tr>
-	      <th scope="row"><%= vacant.id %></th>
-	      <td>
-					<%= link_to vacant.fulladdress, vacant_path(id: vacant.id) %>
-				</td>
-	      <td><%= vacant.blocklot %></td>
-	      <td><%= vacant.neighborhood %></td>
-				<td><%= vacant.policedistrict %></td>
-				<td><%= vacant.councildistrict %></td>
-	    </tr>
-		<% end %>
-  </tbody>
-</table>
+  <div class="col-sm-3">
+    <!-- <br> -->
+    <%= render 'layouts/advanced_search' %>
+    <!-- <br> -->
+  </div>
 
-<hr>
+  <div class="col-sm-9">
 
-<div class="text-center">
-  <%= will_paginate @vacants, previous_label: "&larr; Prev",
-  next_label: "Next &rarr;", renderer: BootstrapPagination::Rails,
-  style: "display: inline-block;", inner_window: 1, outer_window: 0 %>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+    			<th>ID</th>
+          <th>Address</th>
+          <th>Block/Lot</th>
+    			<th>Neighborhood</th>
+    			<th>Police District</th>
+    			<th>Council District</th>
+        </tr>
+      </thead>
+      <tbody>
+    		<% @vacants.each do |vacant| %>
+    	    <tr>
+    	      <th scope="row"><%= vacant.id %></th>
+    	      <td>
+    					<%= link_to vacant.fulladdress, vacant_path(id: vacant.id) %>
+    				</td>
+    	      <td><%= vacant.blocklot %></td>
+    	      <td><%= vacant.neighborhood %></td>
+    				<td><%= vacant.policedistrict %></td>
+    				<td><%= vacant.councildistrict %></td>
+    	    </tr>
+    		<% end %>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <div class="text-center">
+      <%= will_paginate @vacants, previous_label: "&larr; Prev",
+      next_label: "Next &rarr;", renderer: BootstrapPagination::Rails,
+      style: "display: inline-block;", inner_window: 1, outer_window: 0 %>
+    </div>
+  </div>
+
 </div>

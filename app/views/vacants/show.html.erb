@@ -8,4 +8,5 @@
   Police District: <%= @vacant.policedistrict %><br>
   Council District: <%= @vacant.councildistrict %>
 </p>
-<%= link_to 'Back', vacants_path %>
+<!-- <%= link_to 'Back', vacants_path %> -->
+<%= link_to 'Back', vacants_path(neighborhood: '', fulladdress: @vacant.fulladdress, commit: 'Search') %>
