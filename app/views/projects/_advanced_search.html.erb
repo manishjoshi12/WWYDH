@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- <div class="col-sm-4 col-sm-offset-4"> -->
+    <h4 class="text-center">Advanced Search</h4>
+    <div class="col-sm-12">
+      <%= form_tag projects_path, method: "get", id: "search-form" do %>
+        <%= text_field_tag :title, params[:title], class: "form-control", placeholder: "Search Title" %><br>
+        <%= number_field_tag :stage, params[:stage], class: "form-control", placeholder: "Search Stage" %><br>
+        <%= text_field_tag :description, params[:description], class: "form-control", placeholder: "Search Description" %><br>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

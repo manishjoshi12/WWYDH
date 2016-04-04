@@ -13,15 +13,21 @@ class Vacant < ActiveRecord::Base
   # end
 
   def self.search(params)
-    if params.empty?
-      find(:all)
-    elsif !params.has_key?(:neighborhood)
+    search_params = get_search_params(params)
+
+    if search_params.empty?
+      Vacant.all
+    elsif search_params[:neighborhood].blank?
       where("fulladdress LIKE ?", "%#{params[:fulladdress].upcase}%")
     else
       where("fulladdress LIKE ? AND neighborhood LIKE ? AND policedistrict LIKE ?",
             "%#{params[:fulladdress].upcase}%", "%#{params[:neighborhood].upcase}%",
             "%#{params[:policedistrict].upcase}%")
     end
+  end
+
+  def self.get_search_params(params)
+    params.slice(:fulladdress, :neighborhood, :policedistrict)
   end
 
 end

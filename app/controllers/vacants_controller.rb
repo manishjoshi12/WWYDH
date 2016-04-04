@@ -5,8 +5,8 @@ class VacantsController < ApplicationController
 	def index
     # if params[:search]
 		# if params.has_key?(:neighborhood)
-			@vacants = Vacant.search(params).order("id ASC")
-											 .paginate(page: params[:page], per_page: 10)
+		@vacants = Vacant.search(params).order("id ASC")
+										 .paginate(page: params[:page], per_page: 10)
 
 		# if params.has_key?(:neighborhood)
 		# 	@vacants = Vacant.where("fulladdress LIKE ? AND neighborhood LIKE ?", "%#{params[:fulladdress]}%", "%#{params[:neighborhood]}%")
