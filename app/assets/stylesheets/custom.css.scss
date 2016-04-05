@@ -115,6 +115,7 @@ ul {
 #white-title-home{
 	color: #fff;
 }
+
 .full {
   // background: image-url('city.jpeg') no-repeat center center fixed;
   background: image-url('city.jpeg') no-repeat scroll center top transparent;
@@ -123,4 +124,20 @@ ul {
   -o-background-size: cover;
   // background-size: 100%;
   background-size: cover;
+}
+
+// Navbar
+#custom-navbar {
+  border-radius: 0;
+}
+
+.navbar-brand {
+	padding: 0px; /* firefox bug fix */
+}
+
+.navbar-brand > img {
+	height: 100%;
+	// padding: 10px; /* firefox bug fix */
+	width: auto;
+  // padding-bottom: 10px;
 }
