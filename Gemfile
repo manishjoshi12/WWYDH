@@ -8,12 +8,13 @@ gem 'uglifier',             '2.5.3'
 gem 'coffee-rails',         '4.1.0'
 gem 'jquery-rails',         '4.0.3'
 gem 'turbolinks',           '2.3.0'
+gem 'jquery-turbolinks', '~> 0.2.1'
 gem 'jbuilder',             '2.2.3'
 gem 'pg',                   '0.18.4'
 gem 'sdoc',                 '0.4.0', group: :doc
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 
 
 
