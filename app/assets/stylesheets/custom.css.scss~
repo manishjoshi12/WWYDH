@@ -112,9 +112,6 @@ ul {
 }
 
 /* Index Page */
-#white-title-home{
-	color: #fff;
-}
 .full {
   background: url('city.jpeg') no-repeat center center fixed;
   -webkit-background-size: cover;

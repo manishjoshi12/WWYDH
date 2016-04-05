@@ -1,7 +1,7 @@
 <body class = "full">
 <% provide(:title, 'Home') %>
 
-<h1 id = "white-title-home"><%= image_tag("iconwhite.png") %> What Would You Do Here</h1>
+<h1 ><%= image_tag("iconwhite.png") %> What Would You Do Here</h1>
 
 <br>
 
