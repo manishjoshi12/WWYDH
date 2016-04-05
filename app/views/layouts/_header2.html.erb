@@ -1,0 +1,40 @@
+<div class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "icongrey.png", style: "width: 30px; height: 30px;" %>
+      <% end %>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-menubuilder">
+      <ul class="nav navbar-nav">
+        <li><%= link_to root_path do %><i class="fa fa-home"></i> Home<% end %></li>
+        <li><%= link_to about_path do %><i class="fa fa-info-circle"></i> About<% end %></li>
+        <li><%= link_to contact_path do %><i class="fa fa-life-ring"></i> Contact<% end %></li>
+        <li><%= link_to vacants_path do %><i class="fa fa-building-o"></i> Property listings<% end %></li>
+      </ul>
+
+      <!-- Begin Dropdown -->
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown" data-toggle="dropdown" role="button"><i class="fa fa-user"></i> Test <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#"><i class="fa fa-building"></i> My properties</a></li>
+            <li><a href="profile.html"><i class="fa fa-sign-out"></i> View profile</a></li>
+            <li><a href="editprofile.html"><i class="fa fa-info"></i> Edit profile</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Log out</a></li>
+          </ul>
+        </li>
+      </ul>
+      <!-- End dropdown -->
+
+    </div>
+  </div>
+</div>

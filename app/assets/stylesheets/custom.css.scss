@@ -116,10 +116,11 @@ ul {
 	color: #fff;
 }
 .full {
-  // background: url('city.jpeg') no-repeat center center fixed;
-  background: image-url('city.jpeg') no-repeat center center fixed;
+  // background: image-url('city.jpeg') no-repeat center center fixed;
+  background: image-url('city.jpeg') no-repeat scroll center top transparent;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: 100%;
+  // background-size: 100%;
+  background-size: cover;
 }
