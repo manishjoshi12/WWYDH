@@ -15,6 +15,7 @@ gem 'sdoc',                 '0.4.0', group: :doc
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'font-awesome-rails'
+gem 'responders', '~> 2.1', '>= 2.1.1'
 
 
 

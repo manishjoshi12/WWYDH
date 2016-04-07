@@ -1,0 +1,7 @@
+// $('#advanced-search-link').click(function() {
+//   alert("Hello");
+// })
+$('#search-wrapper').hide()
+                    .html("<%= escape_javascript(render :partial => 'simple_search') %>")
+                    .fadeIn("slow");
+// $('#search-wrapper').html("Hello World");
