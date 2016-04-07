@@ -3,7 +3,7 @@
     <!-- <div class="col-sm-4 col-sm-offset-4"> -->
     <h4 class="text-center">Advanced Search</h4>
     <div class="col-sm-12">
-      <%= form_tag vacants_path, method: "get", id: "search-form" do %>
+      <%= form_tag vacants_path, method: "get", id: "search-form", :remote => true do %>
         <%= text_field_tag :fulladdress, params[:fulladdress], class: "form-control", placeholder: "Search Address" %><br>
         <%= text_field_tag :neighborhood, params[:neighborhood], class: "form-control", placeholder: "Search Neighborhood" %><br>
         <%= text_field_tag :policedistrict, params[:policedistrict], class: "form-control", placeholder: "Search Police District" %><br>

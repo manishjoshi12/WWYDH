@@ -2,6 +2,8 @@ class VacantsController < ApplicationController
 
 	skip_before_action :ensure_login, only: [:index, :show]
 
+	respond_to :js
+
 	def index
     # if params[:search]
 		# if params.has_key?(:neighborhood)

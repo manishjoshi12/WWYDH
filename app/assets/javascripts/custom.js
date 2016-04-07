@@ -1,4 +1,4 @@
-$(function(){
+$(function() {
   // hide it first
   $("#spinner").hide();
 
