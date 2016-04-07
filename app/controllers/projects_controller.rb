@@ -13,6 +13,8 @@ class ProjectsController < ApplicationController
   # end
 
   def index
+    @remote_flag = false
+    
     @projects = Project.search(params).order("id ASC")
                        .paginate(page: params[:page], per_page: 10)
   end

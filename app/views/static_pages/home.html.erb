@@ -1,17 +1,39 @@
 <body class = "full">
 <% provide(:title, 'Home') %>
 
-<h1 id = "white-title-home"><%= image_tag("iconwhite.png") %> What Would You Do Here</h1>
+<h1 id = "white-title-home"><%= image_tag("iconwhite.png") %> What Would You Do Here?</h1>
+
+<h3 class="text-center" style="color: white;">Find Locations and Projects that interest you</h3>
 
 <br>
 
-<%= render 'layouts/simple_search' %>
+<!-- Begin pills/tabs -->
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3 centered-pills">
+    <!-- <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+      <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+      <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+    </ul> -->
+    <ul class="nav nav-pills">
+      <li class="active"><a data-toggle="pill" href="#home">Locations</a></li>
+      <li><a data-toggle="pill" href="#menu1">Projects</a></li>
+    </ul>
 
-<div>
-  <h2><%= link_to 'Simple Search', search_path %></h2>
+    <div class="tab-content text-center">
+      <div id="home" class="tab-pane fade in active">
+        <!-- <h3>Search Vacants</h3> -->
+        <%= render 'vacants/advanced_search' %>
+      </div>
+      <div id="menu1" class="tab-pane fade">
+        <!-- <h3>Search Projects</h3> -->
+        <%= render 'projects/advanced_search' %>
+      </div>
+    </div>
+  </div>
 </div>
+<!-- End pills/tabs -->
 
-<br>
 <br>
 
 <div class="row">
@@ -48,6 +70,5 @@
       </li>
     </ul>
   </div>
-</div>
 </div>
 </body>

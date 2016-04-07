@@ -5,6 +5,8 @@ class VacantsController < ApplicationController
 	respond_to :js
 
 	def index
+		@remote_flag = false
+		
     # if params[:search]
 		# if params.has_key?(:neighborhood)
 		@vacants = Vacant.search(params).order("id ASC")

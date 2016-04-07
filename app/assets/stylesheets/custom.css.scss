@@ -38,14 +38,20 @@ p {
 /* footer */
 
 .footer {
+  background: #e7e7e7;
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 60px;
   border-top: 1px solid $gray-medium-light;
+  .container {
+    width: 100%;
+    background: #e7e7e7;
+  }
   .text-muted {
     color: #777;
     margin: 20px 0;
+    padding-left: 25px;
   }
 }
 
@@ -140,4 +146,25 @@ ul {
 	// padding: 10px; /* firefox bug fix */
 	width: auto;
   // padding-bottom: 10px;
+}
+
+.centered-pills {
+  text-align: center;
+}
+.centered-pills ul.nav-pills {
+  display: inline-block;
+}
+// Center tabs
+.centered-pills ul.nav-tabs {
+  display: inline-block;
+}
+.centered-pills li {
+  display: inline;
+}
+.centered-pills a {
+  float: left;
+}
+
+.fa-github {
+  padding-right: 25px;
 }
