@@ -1,4 +1,8 @@
 <table class="table table-hover">
+  <h4 class="text-center">
+    <%= page_entries_info @vacants, model: 'location' %>
+  </h4>
+  <br>
   <thead>
     <tr>
       <th>ID</th>
@@ -25,13 +29,7 @@
   </tbody>
 </table>
 
-<hr>
-
 <div class="text-center">
-  <!-- <%= will_paginate @vacants, previous_label: "&larr; Prev",
-  next_label: "Next &rarr;", renderer: BootstrapPagination::Rails,
-  style: "display: inline-block;", inner_window: 1, outer_window: 0 %> -->
-
   <%= js_will_paginate @vacants, previous_label: "&larr; Prev",
   next_label: "Next &rarr;", style: "display: inline-block;",
   inner_window: 1, outer_window: 0 %>

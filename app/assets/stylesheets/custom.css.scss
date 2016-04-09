@@ -118,6 +118,7 @@ ul {
 }
 
 /* Index Page */
+
 #white-title-home{
 	color: #fff;
 }
@@ -133,6 +134,7 @@ ul {
 }
 
 // Navbar
+
 #custom-navbar {
   border-radius: 0;
 }
@@ -147,6 +149,20 @@ ul {
 	width: auto;
   // padding-bottom: 10px;
 }
+
+// .navbar-default li {
+//   -webkit-transition: background 0.3s;
+//   transition: background 0.3s;
+//   &:hover {
+//     background: lightgrey;
+//   }
+// }
+
+.dropdown-menu > li {
+  text-align: center;
+}
+
+// Dynamic form menu
 
 .centered-pills {
   text-align: center;
@@ -164,6 +180,20 @@ ul {
 .centered-pills a {
   float: left;
 }
+
+// Table Results
+
+.table-hover {
+  border-left: 2px solid lightgrey;
+}
+
+// Horizontal Rule
+
+.hr-half {
+  width: 50%;
+}
+
+// GitHub icon
 
 .fa-github {
   padding-right: 25px;
