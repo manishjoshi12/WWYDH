@@ -29,3 +29,7 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
+.container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+  padding: 8px;
+  margin: 0px;
+}
