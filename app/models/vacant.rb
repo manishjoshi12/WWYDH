@@ -17,7 +17,7 @@ class Vacant < ActiveRecord::Base
 
     if search_params.empty?
       Vacant.all
-    elsif search_params[:neighborhood].blank?
+    elsif search_params[:neighborhood].blank? && search_params[:policedistrict].blank?
       where("fulladdress LIKE ?", "%#{params[:fulladdress].upcase}%")
     else
       where("fulladdress LIKE ? AND neighborhood LIKE ? AND policedistrict LIKE ?",

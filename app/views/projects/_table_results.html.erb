@@ -1,0 +1,34 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Project Name</th>
+      <th>Stage</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <th scope="row"><%= project.id %></th>
+        <td>
+          <%= link_to project.title, project_path(id: project.id) %>
+        </td>
+        <td><%= project.stage %></td>
+        <td><%= project.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<hr>
+
+<div class="text-center">
+  <!-- <%= will_paginate @projects, previous_label: "&larr; Prev",
+  next_label: "Next &rarr;", renderer: BootstrapPagination::Rails,
+  style: "display: inline-block;", inner_window: 1, outer_window: 0 %> -->
+
+  <%= js_will_paginate @projects, previous_label: "&larr; Prev",
+  next_label: "Next &rarr;", style: "display: inline-block;",
+  inner_window: 1, outer_window: 0 %>
+</div>

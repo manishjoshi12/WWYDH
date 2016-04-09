@@ -7,7 +7,7 @@ class Project < ActiveRecord::Base
     if search_params.empty?
       Project.all
     elsif search_params[:stage].blank?
-      where("title LIKE ? AND description LIKE ?",
+      where("title ILIKE ? AND description LIKE ?",
       "%#{params[:title]}%", "%#{params[:description]}%")
     else
       where("title LIKE ? AND stage = ? AND description LIKE ?",
