@@ -3,7 +3,10 @@ class UsersController < ApplicationController
  skip_before_action :ensure_login, only: [:index, :new, :create, :confirm_email]
 
   def index
-    @users = User.all
+    @remote_flag = false
+
+    @users = User.search(params).order("user_id ASC")
+                 .paginate(page: params[:page], per_page: 10)
   end
 
   def new

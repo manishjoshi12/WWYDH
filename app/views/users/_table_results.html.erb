@@ -1,0 +1,32 @@
+<table class="table table-hover">
+  <h4 class="text-center">
+    <%= page_entries_info @users, model: 'user' %>
+  </h4>
+  <br>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Admin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <th scope="row"><%= user.user_id %></th>
+        <td><%= user.firstname %></td>
+        <td><%= user.lastname %></td>
+        <td><%= user.email %></td>
+        <td><%= user.isadmin %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="text-center">
+  <%= js_will_paginate @users, previous_label: "&larr; Prev",
+  next_label: "Next &rarr;", style: "display: inline-block;",
+  inner_window: 1, outer_window: 0 %>
+</div>

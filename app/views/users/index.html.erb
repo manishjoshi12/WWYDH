@@ -1,6 +1,23 @@
-<% @users.each do |e| %>
-  <h3>
-    <%= "#{e.firstname} #{e.lastname}" %>
-  </h3>
-  <hr>
-<% end %>
+<% provide(:title, 'Users') %>
+
+<h1>Users</h1>
+
+<hr class="hr-half">
+
+<div class="row">
+
+  <div class="col-sm-3">
+    <%= render 'users/advanced_search' %>
+
+    <div id="spinner" class="spinner text-center">
+      <%= image_tag 'ripple-large.gif', style: 'padding-top: 10px;' %>
+    </div>
+  </div>
+
+  <div class="col-sm-9" id="results-wrap">
+
+    <%= render 'table_results' %>
+
+  </div>
+
+</div>
