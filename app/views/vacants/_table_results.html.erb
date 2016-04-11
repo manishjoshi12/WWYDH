@@ -7,7 +7,8 @@
     <tr>
       <th>ID</th>
       <th>Address</th>
-      <th>Block/Lot</th>
+      <th>Block</th>
+      <th>Lot</th>
       <th>Neighborhood</th>
       <th>Police District</th>
       <th>Council District</th>
@@ -18,12 +19,13 @@
       <tr>
         <th scope="row"><%= vacant.id %></th>
         <td>
-          <%= link_to vacant.fulladdress, vacant_path(id: vacant.id) %>
+          <%= link_to vacant.full_address, vacant_path(id: vacant.id) %>
         </td>
-        <td><%= vacant.blocklot %></td>
+        <td><%= vacant.block %></td>
+        <td><%= vacant.lot %></td>
         <td><%= vacant.neighborhood %></td>
-        <td><%= vacant.policedistrict %></td>
-        <td><%= vacant.councildistrict %></td>
+        <td><%= vacant.police_district %></td>
+        <td><%= vacant.council_district %></td>
       </tr>
     <% end %>
   </tbody>

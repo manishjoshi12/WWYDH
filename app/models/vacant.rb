@@ -8,9 +8,9 @@ class Vacant < ActiveRecord::Base
     if search_params.empty?
       vacants = Vacant.all
     else
-			vacants = Vacant.by_fulladdress(search_params[:fulladdress])
+			vacants = Vacant.by_full_address(search_params[:full_address])
 									    .by_neighborhood(search_params[:neighborhood])
-				              .by_policedistrict(search_params[:policedistrict])
+				              .by_police_district(search_params[:police_district])
 		end
 
 		vacants
@@ -21,15 +21,15 @@ class Vacant < ActiveRecord::Base
   # Expose incoming search parameters
 
   def self.get_search_params(params)
-    sliced = params.compact.slice(:fulladdress, :neighborhood, :policedistrict)
+    sliced = params.compact.slice(:full_address, :neighborhood, :police_district)
 		sliced.delete_if { |k, v| v.blank? }
   end
 
   # Validate incoming search paramters
 
-	def self.by_fulladdress(fulladdress)
-		return Vacant.all unless fulladdress.present?
-		Vacant.where('fulladdress LIKE ?', "%#{fulladdress.upcase}%")
+	def self.by_full_address(full_address)
+		return Vacant.all unless full_address.present?
+		Vacant.where('full_address LIKE ?', "%#{full_address.upcase}%")
 	end
 
   def self.by_neighborhood(neighborhood)
@@ -37,9 +37,9 @@ class Vacant < ActiveRecord::Base
 		Vacant.where('neighborhood LIKE ?', "%#{neighborhood.upcase}%")
 	end
 
-  def self.by_policedistrict(policedistrict)
-		return Vacant.all unless policedistrict.present?
-		Vacant.where('policedistrict LIKE ?', "%#{policedistrict.upcase}%")
+  def self.by_police_district(police_district)
+		return Vacant.all unless police_district.present?
+		Vacant.where('police_district LIKE ?', "%#{police_district.upcase}%")
 	end
 
 end

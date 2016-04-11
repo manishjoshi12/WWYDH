@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321232838) do
+ActiveRecord::Schema.define(version: 20160410234340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,14 +38,20 @@ ActiveRecord::Schema.define(version: 20160321232838) do
     t.string  "confirm_token"
   end
 
-  create_table "vacants", id: :bigserial, force: :cascade do |t|
-    t.string  "blocklot",        limit: 255
-    t.string  "fulladdress",     limit: 255
-    t.string  "neighborhood",    limit: 255
-    t.integer "councildistrict"
-    t.string  "policedistrict",  limit: 255
-    t.point   "location_1"
-    t.date    "noticedate"
+  create_table "vacants", force: :cascade do |t|
+    t.string  "full_address"
+    t.string  "block"
+    t.string  "lot"
+    t.string  "zip_code"
+    t.string  "city"
+    t.string  "neighborhood"
+    t.string  "police_district"
+    t.integer "council_district"
+    t.decimal "longitude"
+    t.decimal "latitude"
+    t.string  "owner"
+    t.string  "use"
+    t.string  "mailing_address"
   end
 
   add_foreign_key "projects", "vacants"
