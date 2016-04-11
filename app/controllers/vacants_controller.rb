@@ -6,23 +6,9 @@ class VacantsController < ApplicationController
 
 	def index
 		@remote_flag = false
-		
-    # if params[:search]
-		# if params.has_key?(:neighborhood)
+
 		@vacants = Vacant.search(params).order("id ASC")
 										 .paginate(page: params[:page], per_page: 10)
-
-		# if params.has_key?(:neighborhood)
-		# 	@vacants = Vacant.where("fulladdress LIKE ? AND neighborhood LIKE ?", "%#{params[:fulladdress]}%", "%#{params[:neighborhood]}%")
-		# 									 .order("id ASC").paginate(page: params[:page], per_page: 10)
-	  # elsif params.has_key?(:search)
-    #  	@vacants = Vacant.search(params[:search]).order("id ASC")
-		# 									 .paginate(page: params[:page], per_page: 10)
-		# else
-    #   @vacants = Vacant.order("id ASC")
-		# 									 .paginate(page: params[:page], per_page: 10)
-    # end
-
   end
 
 	def show
@@ -30,7 +16,7 @@ class VacantsController < ApplicationController
 	end
 
 	def vacant_params
-		params.require(:vacant).permit(:fulladdress, :policedistrict)
+		params.require(:vacant).permit(:full_address, :police_district)
 	end
 
 end

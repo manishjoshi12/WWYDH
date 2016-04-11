@@ -1,13 +1,13 @@
-<% provide(:title, @vacant.fulladdress) %>
+<% provide(:title, @vacant.full_address) %>
 
-<h1><%= @vacant.fulladdress %></h1>
+<h1><%= @vacant.full_address %></h1>
 <p>
   ID: <%= @vacant.id %><br>
-  Block/Lot: <%= @vacant.blocklot %><br>
+  Block: <%= @vacant.block %><br>
+  Lot: <%= @vacant.lot %><br>
   Neighborhood: <%= @vacant.neighborhood %><br>
-  Police District: <%= @vacant.policedistrict %><br>
-  Council District: <%= @vacant.councildistrict %>
+  Police District: <%= @vacant.police_district %><br>
+  Council District: <%= @vacant.council_district %>
 </p>
-<!-- <%= link_to 'Back', vacants_path(neighborhood: '', policedistrict: '', fulladdress: @vacant.fulladdress, commit: 'Search') %> -->
 
 <%= link_to 'Back', vacants_path %>
