@@ -20,7 +20,7 @@ Rails.application.configure do
   # NGINX, varnish or squid.
   # config.action_dispatch.rack_cache = true
 config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = {:host => "WWYDH412.herokuapp.com"}
+  config.action_mailer.default_url_options = {:host => "wwydhweb.herokuapp.com"}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
