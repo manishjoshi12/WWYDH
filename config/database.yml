@@ -31,5 +31,12 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+ adapter: postgresql
+  pool: 5
+  host: localhost
+  timeout: 5000
+  username: WWYDH
+  password: password
+  database: WWYDH
+  host: wwydh.chitlustoxam.us-west-2.rds.amazonaws.com
+  port: 5432
