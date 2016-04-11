@@ -1,13 +1,21 @@
+
+<body class="full">
+
+
 <% provide(:title, @vacant.fulladdress) %>
+<div class="container">
+	<h1 class="address"><%= @vacant.fulladdress %></h1>
+	<span class ="pic">a picture goes here</span>
+	<span class="info">
+	  ID: <%= @vacant.id %><br>
+	  Block/Lot: <%= @vacant.blocklot %><br>
+	  Neighborhood: <%= @vacant.neighborhood %><br>
+	  Police District: <%= @vacant.policedistrict %><br>
+	  Council District: <%= @vacant.councildistrict %>
+	</span>
+	<!-- <%= link_to 'Back', vacants_path(neighborhood: '', policedistrict: '', fulladdress: @vacant.fulladdress, commit: 'Search') %> -->
 
-<h1><%= @vacant.fulladdress %></h1>
-<p>
-  ID: <%= @vacant.id %><br>
-  Block/Lot: <%= @vacant.blocklot %><br>
-  Neighborhood: <%= @vacant.neighborhood %><br>
-  Police District: <%= @vacant.policedistrict %><br>
-  Council District: <%= @vacant.councildistrict %>
-</p>
-<!-- <%= link_to 'Back', vacants_path(neighborhood: '', policedistrict: '', fulladdress: @vacant.fulladdress, commit: 'Search') %> -->
+	<%= link_to 'Back', vacants_path %>
+	</div>
+</body>
 
-<%= link_to 'Back', vacants_path %>
