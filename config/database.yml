@@ -33,7 +33,7 @@ test:
 production:
  adapter: postgresql
   pool: 5
-  host: localhost
+  host: herokuapp.com
   timeout: 5000
   username: WWYDH
   password: password
