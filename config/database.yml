@@ -30,13 +30,3 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-production:
- adapter: postgresql
-  pool: 5
-  host: herokuapp.com
-  timeout: 5000
-  username: WWYDH
-  password: password
-  database: WWYDH
-  host: wwydh.chitlustoxam.us-west-2.rds.amazonaws.com
-  port: 5432
