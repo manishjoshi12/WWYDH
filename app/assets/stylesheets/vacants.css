@@ -1,3 +1,42 @@
 /*// Place all the styles related to the vacants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+.container {
+	position: relative;
+	background-color: #ffffff;
+	border-radius: 1em;
+	border-width: .2em;
+	
+ 	
+
+
+}
+
+.address{
+	text-align: center;
+	font-size: 3em;
+
+}
+.pic
+{
+	position: relative;
+	left: 25px;
+	height: 200px;
+	width: 300px;
+	border-style: solid;
+	border-radius: 10px;
+	background-color: #00ff00;
+}	
+
+.info{
+	position: relative;
+	right: -2em;
+	top: 2em;
+	border-style: solid;
+	border-width: .2em;
+	background-color: #ffffff;
+	border-radius: 1em;
+
+	
+}

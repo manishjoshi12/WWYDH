@@ -1,0 +1,5 @@
+<% provide(:title, 'User Profile') %>
+
+<h1>User Profile page</h1>
+<h3>User: <%= "#{@user.firstname.capitalize} #{@user.lastname.capitalize}" %></h3>
+<h4> Email: <%= @user.email %></h4>

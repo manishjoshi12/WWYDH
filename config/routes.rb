@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :projects
   resources :vacants
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users, only: [:index, :new, :create] do
+  resources :users, only: [:index, :show, :new, :create] do
       member do
         get :confirm_email
       end
