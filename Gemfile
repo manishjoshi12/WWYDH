@@ -16,6 +16,8 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'font-awesome-rails'
 gem 'responders', '~> 2.1', '>= 2.1.1'
+gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
+gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 
 
 
