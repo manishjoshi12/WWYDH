@@ -1,15 +1,40 @@
 <% provide(:title, @vacant.full_address) %>
 
-<h1><%= @vacant.full_address %></h1>
-<p>
-  ID: <%= @vacant.id %><br>
-  Block: <%= @vacant.block %><br>
-  Lot: <%= @vacant.lot %><br>
-  Neighborhood: <%= @vacant.neighborhood %><br>
-  Police District: <%= @vacant.police_district %><br>
-  Council District: <%= @vacant.council_district %>
-</p>
+<body class="full">
+	<div class="container">
+		<h1 class="address"><%= @vacant.full_address %></h1>
+	</div>
+	<div class="container">
+		<span class="pic">
+			pic here
+		</span>
+		<span class="info">
+		
+			<div>Neighborhood: <%= @vacant.neighborhood %></div>
+			<div>Owner: <%= @vacant.owner %></div>
+			<div>Use: <%= @vacant.use %></div>
+			<div><%= @vacant.latitude %></div>
+			<div><%= @vacant.longitude %></div>
 
-<%= link_to 'Back', vacants_path %>
+			<div><%= link_to 'Back', vacants_path %></div>
+		</span>
 
-<%= render 'gmaps' %>
+	</div>
+
+  <div class="container">
+		
+		<h1>Google Maps</h1>
+		
+  				
+  					<%= render 'gmaps' %>
+  				
+			
+
+	</div>
+
+
+
+
+</body>
+
+
