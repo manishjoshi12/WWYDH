@@ -32,7 +32,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a href="#"><i class="fa fa-building-o"></i> My Locations</a></li>
-              <li><%= link_to profile_path(current_user) do %><i class="fa fa-user"></i> My Profile<% end %></li>
+              <li><%= link_to user_path(current_user) do %><i class="fa fa-user"></i> My Profile<% end %></li>
               <li><%= link_to editprofile_path(current_user) do %><i class="fa fa-cog"></i> Edit Profile<% end %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to logout_path, method: :delete do %><i class="fa fa-sign-out"></i> Log Out<% end %></li>
