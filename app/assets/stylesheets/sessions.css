@@ -3,7 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .full {
-  background: url('baltimore.jpeg') no-repeat center center fixed;
+  /*background: url('baltimore.jpeg') no-repeat center center fixed;*/
+  background: image-url('city.jpeg') no-repeat scroll center top transparent;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -67,4 +68,3 @@
     -webkit-border-radius: 50%;
     border-radius: 50%;
 }
-
