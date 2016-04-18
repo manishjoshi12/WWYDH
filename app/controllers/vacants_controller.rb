@@ -13,6 +13,7 @@ class VacantsController < ApplicationController
 
 	def show
 		@vacant = Vacant.find(params[:id])
+		@projects = Project.by_vacant_id(:id)
 	end
 
 	def vacant_params
