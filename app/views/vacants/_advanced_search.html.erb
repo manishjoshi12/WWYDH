@@ -1,16 +1,15 @@
 <div class="container-fluid">
   <div class="row">
     <!-- <div class="col-sm-4 col-sm-offset-4"> -->
-    <h4 class="text-center">Advanced Search: Locations</h4>
     <br>
     <div class="col-sm-12">
       <% if request.path.include?('vacants') then @remote_flag = true end %>
 
       <%= form_tag vacants_path, method: "get", id: "search-form", remote: @remote_flag do %>
-        <%= text_field_tag :full_address, params[:full_address], class: "form-control", placeholder: "Search Address" %><br>
-        <%= text_field_tag :neighborhood, params[:neighborhood], class: "form-control", placeholder: "Search Neighborhood" %><br>
-        <%= text_field_tag :police_district, params[:police_district], class: "form-control", placeholder: "Search Police District" %><br>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <%= text_field_tag :full_address, params[:full_address], class: "form-control", placeholder: "Search Locations" %><br>
+        <!--<%= text_field_tag :neighborhood, params[:neighborhood], class: "form-control", placeholder: "Search Neighborhood" %><br>
+        <%= text_field_tag :police_district, params[:police_district], class: "form-control", placeholder: "Search PoliceDistrict" %><br>-->
+        <%= submit_tag "Search", class: "btn btn-success" %>
       <% end %>
     </div>
   </div>

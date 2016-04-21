@@ -1,9 +1,11 @@
+<body class = "full">
 <% provide(:title, 'Signup') %>
 
-<div class="col-sm-4 col-sm-offset-4">
-
+<div class="account-wall col-sm-4 col-sm-offset-4 form-signin ">
+	
+  <%= image_tag("icongrey.png", :class => "profile-img" )%>
   <h1 class="text-center">Signup</h1>
-
+	
   <!-- <hr> -->
   <br>
 
@@ -11,28 +13,25 @@
     <%= render 'shared/error_messages' %>
 
     <div class = "form-group">
-      <%= f.label :first_name %>
-      <%= f.text_field :firstname, class: "form-control" %>
+     
+      <%= f.text_field :firstname, class: "form-control", :placeholder => "First Name" %>
+	 
     </div>
 
     <div class = "form-group">
-      <%= f.label :last_name %>
-      <%= f.text_field :lastname, class: "form-control" %>
+      <%= f.text_field :lastname, class: "form-control", :placeholder => "Last Name" %>
     </div>
 
     <div class = "form-group">
-      <%= f.label :email %>
-      <%= f.text_field :email, class: "form-control" %>
+      <%= f.text_field :email, class: "form-control", :placeholder => "Email" %>
     </div>
 
     <div class = "form-group">
-      <%= f.label :password %>
-      <%= f.password_field :password, class: "form-control" %>
+      <%= f.password_field :password, class: "form-control", :placeholder => "Password" %>
     </div>
 
     <div class = "form-group">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, class: "form-control" %>
+      <%= f.password_field :password_confirmation, class: "form-control", :placeholder => "Confirm Password" %>
     </div>
 
     <%= f.submit "Submit", class: "btn btn-block btn-primary" %>
@@ -43,3 +42,4 @@
   <p class="text-center">Already have an account? <%= link_to "Log in", login_path %></p>
 
 </div>
+</body>

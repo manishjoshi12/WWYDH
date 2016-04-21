@@ -1,23 +1,21 @@
 <body class = "full">
-<% provide(:title, 'Home') %>
+  <% provide(:title, 'Home') %>
 
-<h1 id = "white-title-home"><%= image_tag("iconwhite.png") %> What Would You Do Here?</h1>
+  <h1 class="img-responsive" align="middle" id="white-title-home"><%=image_tag("whitelogo.png", class:"text-align:middle", class:"max-height:500px",class:"max-width:500px",style:"height:auto", style:"width:60%") %> </h1>
 
-<h3 class="text-center" style="color: white;">Find Locations and Projects that interest you</h3>
+  <br>
 
-<br>
-
-<!-- Begin pills/tabs -->
-<div class="row">
-  <div class="col-sm-6 col-sm-offset-3 centered-pills">
-    <!-- <ul class="nav nav-tabs">
+  <!-- Begin pills/tabs -->
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3 centered-pills">
+      <!-- <ul class="nav nav-tabs">
       <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
       <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
       <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
     </ul> -->
     <ul class="nav nav-pills">
-      <li class="active"><a data-toggle="pill" href="#home">Locations</a></li>
-      <li><a data-toggle="pill" href="#menu1">Projects</a></li>
+      <li class="active"><a data-toggle="pill" href="#home" style="color: white;"><h4>Locations</h4></a></li>
+      <li><a data-toggle="pill" href="#menu1" style="color: white;"><h4>Projects</h4></a></li>
     </ul>
 
     <div class="tab-content text-center">
@@ -30,45 +28,176 @@
         <%= render 'projects/advanced_search' %>
       </div>
     </div>
+
   </div>
 </div>
 <!-- End pills/tabs -->
 
 <br>
 
-<div class="row">
-  <div class="col-sm-2 col-sm-offset-3">
-    <h3 class="text-center">Projects</h3>
-    <ul id="links_from_home" class="text-center">
-      <li>
-        <%= link_to 'Create new project', new_project_path %>
-      </li>
-      <li>
-        <%= link_to 'View all projects', projects_path %>
-      </li>
-    </ul>
+<!-- <script src="http://maps.googleapis.com/maps/api/js"></script> -->
+<!-- <script>
+function initialize() {
+var mapProp = {
+center: new google.maps.LatLng(39.2904, -76.6122),
+zoom: 12,
+mapTypeId: google.maps.MapTypeId.ROADMAP
+};
+var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script> -->
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Find Locations Near You!</h1>
+
+      <%= render 'gmaps' %>
+    </div>
   </div>
-  <div class="col-sm-2">
-    <h3 class="text-center">Users</h3>
-    <ul id="links_from_home" class="text-center">
-      <li>
-        <%= link_to 'Create an account', new_user_path %>
-      </li>
-      <li>
-        <%= link_to 'View all users', users_path %>
-      </li>
-    </ul>
+
+  <!-- <br>
+  <br> -->
+</div>
+
+<br>
+<!-- Page Content -->
+<div class="container">
+
+  <!-- Page Header -->
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Projects in Motion
+        <small>Projects</small>
+      </h1>
+    </div>
   </div>
-  <div class="col-sm-2">
-    <h3 class="text-center">Locations</h3>
-    <ul id="links_from_home" class="text-center">
-      <li>
-        <%= link_to 'Submit a location', new_user_path %>
-      </li>
-      <li>
-        <%= link_to 'View all locations', vacants_path %>
-      </li>
-    </ul>
+  <!-- /.row -->
+
+  <!-- Projects Row -->
+  <div class="row">
+    <div class="col-md-6 portfolio-item">
+      <a href="#">
+        <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+      </a>
+      <h3>
+        <a href="#">Project One</a>
+      </h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+    </div>
+    <div class="col-md-6 portfolio-item">
+      <a href="#">
+        <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+      </a>
+      <h3>
+        <a href="#">Project Two</a>
+      </h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+    </div>
+  </div>
+  <!-- /.row -->
+
+  <!-- Projects Row -->
+  <div class="row">
+    <div class="col-md-6 portfolio-item">
+      <a href="#">
+        <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+      </a>
+      <h3>
+        <a href="#">Project Three</a>
+      </h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+    </div>
+    <div class="col-md-6 portfolio-item">
+      <a href="#">
+        <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+      </a>
+      <h3>
+        <a href="#">Project Four</a>
+      </h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+    </div>
+  </div>
+  <!-- /.row -->
+
+  <hr>
+
+  <!-- Pagination -->
+  <div class="row text-center">
+    <div class="col-lg-12">
+      <ul class="pagination">
+        <li>
+          <a href="#">&laquo;</a>
+        </li>
+        <li class="active">
+          <a href="#">1</a>
+        </li>
+        <li>
+          <a href="#">2</a>
+        </li>
+        <li>
+          <a href="#">3</a>
+        </li>
+        <li>
+          <a href="#">4</a>
+        </li>
+        <li>
+          <a href="#">5</a>
+        </li>
+        <li>
+          <a href="#">&raquo;</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- /.row -->
+</div>
+
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Get Started
+        <small style="color: #428bca;">Links</small>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <h3 class="text-center">Projects</h3>
+      <ul id="links_from_home" class="text-center">
+        <li>
+          <%= link_to 'Create new project', new_project_path %>
+        </li>
+        <li>
+          <%= link_to 'View all projects', projects_path %>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-4">
+      <h3 class="text-center">Users</h3>
+      <ul id="links_from_home" class="text-center">
+        <li>
+          <%= link_to 'Create an account', new_user_path %>
+        </li>
+        <li>
+          <%= link_to 'View all users', users_path %>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-4">
+      <h3 class="text-center">Locations</h3>
+      <ul id="links_from_home" class="text-center">
+        <li>
+          <%= link_to 'Submit a location', new_user_path %>
+        </li>
+        <li>
+          <%= link_to 'View all locations', vacants_path %>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 </body>

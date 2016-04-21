@@ -29,7 +29,24 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
+.container {
+  background-color: lightgrey;
+  background-color: rgba(255, 255, 255, 0.65);
+}
+
 .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
   padding: 8px;
   margin: 0px;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  background-color: grey;
+}
+
+.nav > li > a:hover {
+  background-color: darkgrey;
+}
+
+#links_from_home {
+  font-size: 18px;
 }

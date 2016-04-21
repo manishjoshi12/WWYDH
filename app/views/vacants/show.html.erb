@@ -1,26 +1,26 @@
 <% provide(:title, @vacant.full_address) %>
 
-<body class="full">
+<section class="full">
 	<div class="container">
 		<h1 class="address"><%= @vacant.full_address %></h1>
 	</div>
 	<div class="container">
 		<span class="pic">
 			<%= image_tag("https://maps.googleapis.com/maps/api/streetview?size=400x400&location=#{@vacant.latitude},#{@vacant.longitude}&fov=90") %>
-			
+
 		</span>
 		<span class="infoContainer">
 		<div class="info"><%= @vacant.city %> <%= @vacant.zip_code%></div>
-			
+
 			<div class="info">Neighborhood: <%= @vacant.neighborhood %></div>
 			<div class="info">Police District: <%= @vacant.police_district%></div>
 			<div class="info">Council District: <%= @vacant.council_district %></div>
-			
+
 			<div class="info">Owner: <%= @vacant.owner %></div>
-			
+
 			<div class="info">Use: <%= @vacant.use %></div>
 			<div class="info">Mail: <%= @vacant.mailing_address %> </div>
-			
+
 
 			<div class="info"><%= link_to 'Back', vacants_path %></div>
 		</span>
@@ -28,9 +28,8 @@
 	</div>
 
   <div class="container">
-				  				
-  					<%= render 'gmaps' %>
-  							
+
+		<%= render 'gmaps' %>
 
 	</div>
 
@@ -42,15 +41,9 @@
 				<!--<%= link_to project.title, project_path(id: project.id) %>-->
 			<% end %>
 		<% else %>
-			
+
 			<div>There are no projects at this location yet!</div>
 		<% end %>
 	</div>
-	
 
-
-
-
-</body>
-
-
+</section>
