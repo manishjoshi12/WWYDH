@@ -10,23 +10,20 @@ class Project < ActiveRecord::Base
       projects = Project.by_title(search_params[:title])
                         .by_stage(search_params[:stage])
                         .by_description(search_params[:description])
-
+                        .by_vacant_id(search_params[:vacant_id])
                         
                         
     end
   end
 
-  def self.by_vacant_id(vacant_id)
-    return Project.all unless vacant_id.present?
-    Project.where('vacant_id = ?', "%#{vacant_id}%")
-  end 
+ 
   
   private
 
   # Expose incoming search parameters
 
   def self.get_search_params(params)
-    sliced = params.compact.slice(:title, :stage, :description)
+    sliced = params.compact.slice(:title, :stage, :description, :vacant_id)
 		sliced.delete_if { |k, v| v.blank? }
   end
 
@@ -47,5 +44,8 @@ class Project < ActiveRecord::Base
 		Project.where('description ILIKE ?', "%#{description}%")
 	end
 
-  
+   def self.by_vacant_id(vacant_id)
+    return Project.all unless vacant_id.present?
+    Project.where('vacant_id = ?', vacant_id)
+  end 
 end

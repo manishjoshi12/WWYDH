@@ -27,23 +27,29 @@
 
 	</div>
 
-  <div class="container">
-
+  
+		<div id="vacant-show-map-container">
 		<%= render 'gmaps' %>
-
-	</div>
+		</div>
+	
 
 	<div class="container">
-	<h1>Projects</h1>
-		<% unless @projects %>
+		
+		<h1>Projects</h1>
+		<%= link_to "Create a project here!", new_project_path(:vacant => @vacant.id) %>
 			<% @projects.each do |project| %>
-				<%= project.title %>
-				<!--<%= link_to project.title, project_path(id: project.id) %>-->
+					<%= project.title %>
+					<!--<%= link_to project.title, project_path(id: project.id) %>-->
+				<% end %>
+			<% unless @projects %>
+				<% @projects.each do |project| %>
+					<%= project.title %>
+					<!--<%= link_to project.title, project_path(id: project.id) %>-->
+				<% end %>
+			<% else %>
+
+				<div>There are no projects at this location yet!</div>
 			<% end %>
-		<% else %>
-
-			<div>There are no projects at this location yet!</div>
-		<% end %>
+	
 	</div>
-
 </section>
