@@ -6,31 +6,47 @@
 	</div>
 	<div class="container">
 		<span class="pic">
-			pic here
+			<%= image_tag("https://maps.googleapis.com/maps/api/streetview?size=400x400&location=#{@vacant.latitude},#{@vacant.longitude}&fov=90") %>
+			
 		</span>
-		<span class="info">
-		
-			<div>Neighborhood: <%= @vacant.neighborhood %></div>
-			<div>Owner: <%= @vacant.owner %></div>
-			<div>Use: <%= @vacant.use %></div>
-			<div><%= @vacant.latitude %></div>
-			<div><%= @vacant.longitude %></div>
+		<span class="infoContainer">
+		<div class="info"><%= @vacant.city %> <%= @vacant.zip_code%></div>
+			
+			<div class="info">Neighborhood: <%= @vacant.neighborhood %></div>
+			<div class="info">Police District: <%= @vacant.police_district%></div>
+			<div class="info">Council District: <%= @vacant.council_district %></div>
+			
+			<div class="info">Owner: <%= @vacant.owner %></div>
+			
+			<div class="info">Use: <%= @vacant.use %></div>
+			<div class="info">Mail: <%= @vacant.mailing_address %> </div>
+			
 
-			<div><%= link_to 'Back', vacants_path %></div>
+			<div class="info"><%= link_to 'Back', vacants_path %></div>
 		</span>
 
 	</div>
 
   <div class="container">
-		
-		<h1>Google Maps</h1>
-		
-  				
+				  				
   					<%= render 'gmaps' %>
-  				
-			
+  							
 
 	</div>
+
+	<div class="container">
+	<h1>Projects</h1>
+		<% unless @projects %>
+			<% @projects.each do |project| %>
+				<%= project.title %>
+				<!--<%= link_to project.title, project_path(id: project.id) %>-->
+			<% end %>
+		<% else %>
+			
+			<div>There are no projects at this location yet!</div>
+		<% end %>
+	</div>
+	
 
 
 
