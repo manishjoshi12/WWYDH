@@ -1,7 +1,17 @@
 <body class = "full">
   <% provide(:title, 'Home') %>
 
-  <h1 class="img-responsive" align="middle" id="white-title-home"><%=image_tag("whitelogo.png", class:"text-align:middle", class:"max-height:500px",class:"max-width:500px",style:"height:auto", style:"width:60%") %> </h1>
+  <!-- <h1 class="img-responsive" align="middle" id="white-title-home">
+    <%= image_tag("whitelogo.png",
+                  style: "text-align: center; max-height: 500px;
+                  max-width: 500px; height: auto; width: 60%;") %>
+  </h1> -->
+
+  <div class="jumbotron text-center" style="background: transparent;">
+    <%= image_tag("whitelogo.png",
+                  style: "text-align: center; max-height: 600px;
+                  max-width: 600px; height: auto; width: 100%;") %>
+  </div>
 
   <br>
 
