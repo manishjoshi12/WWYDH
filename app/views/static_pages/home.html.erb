@@ -1,75 +1,64 @@
-<body class = "full">
-  <% provide(:title, 'Home') %>
+<% provide(:title, 'Home') %>
+<% provide(:class, 'full') %>
 
-  <!-- <h1 class="img-responsive" align="middle" id="white-title-home">
-    <%= image_tag("whitelogo.png",
-                  style: "text-align: center; max-height: 500px;
-                  max-width: 500px; height: auto; width: 60%;") %>
-  </h1> -->
+<div class="jumbotron text-center" style="background: transparent;">
+  <%= image_tag("whitelogo.png", style: "text-align: center;") %>
+</div>
 
-  <div class="jumbotron text-center" style="background: transparent;">
-    <%= image_tag("whitelogo.png",
-                  style: "text-align: center; max-height: 600px;
-                  max-width: 600px; height: auto; width: 100%;") %>
-  </div>
+<br>
 
-  <br>
+<!-- Begin pills/tabs -->
+<div class="row">
 
-  <!-- Begin pills/tabs -->
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3 centered-pills">
-      <!-- <ul class="nav nav-tabs">
-      <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-      <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
-      <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
-    </ul> -->
+  <div class="col-sm-6 col-sm-offset-3 centered-pills">
+    <h2 class="text-center" style="color: white;">
+      Search for Projects and Locations
+    </h2>
+    <br>
     <ul class="nav nav-pills">
-      <li class="active"><a data-toggle="pill" href="#home" style="color: white;"><h4>Locations</h4></a></li>
-      <li><a data-toggle="pill" href="#menu1" style="color: white;"><h4>Projects</h4></a></li>
+      <li class="active">
+        <a data-toggle="pill" href="#home" style="color: white;">
+          <h4>Locations</h4>
+        </a>
+      </li>
+      <li>
+        <a data-toggle="pill" href="#menu1" style="color: white;">
+          <h4>Projects</h4>
+        </a>
+      </li>
     </ul>
 
     <div class="tab-content text-center">
       <div id="home" class="tab-pane fade in active">
-        <!-- <h3>Search Vacants</h3> -->
         <%= render 'vacants/advanced_search' %>
       </div>
       <div id="menu1" class="tab-pane fade">
-        <!-- <h3>Search Projects</h3> -->
         <%= render 'projects/advanced_search' %>
       </div>
     </div>
 
   </div>
+
 </div>
 <!-- End pills/tabs -->
 
 <br>
 
-<!-- <script src="http://maps.googleapis.com/maps/api/js"></script> -->
-<!-- <script>
-function initialize() {
-var mapProp = {
-center: new google.maps.LatLng(39.2904, -76.6122),
-zoom: 12,
-mapTypeId: google.maps.MapTypeId.ROADMAP
-};
-var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-}
-google.maps.event.addDomListener(window, 'load', initialize);
-</script> -->
 <div class="container-fluid">
 
   <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Find Locations Near You!</h1>
+    <div class="col-sm-12">
+      <h1 class="page-header text-center" style="color: white;">
+        Or Find Locations Near You!
+      </h1>
 
       <%= render 'gmaps' %>
     </div>
   </div>
 
-  <!-- <br>
-  <br> -->
 </div>
+
+<br>
 
 <br>
 <!-- Page Content -->
@@ -210,4 +199,3 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </div>
   </div>
 </div>
-</body>

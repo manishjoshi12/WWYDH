@@ -24,10 +24,17 @@ html {
   min-height: 100%;
 }
 
+html, html a {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+}
+
 body {
   margin-bottom: 60px;
   padding-bottom: 30px;
   font-family: 'Raleway', sans-serif;
+  // font-weight: 500;
 }
 
 .container {
@@ -50,4 +57,12 @@ body {
 
 #links_from_home {
   font-size: 18px;
+}
+
+section {
+  background-color: rgba(255, 255, 255, 0.65);
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
 }

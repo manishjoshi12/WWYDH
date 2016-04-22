@@ -4,7 +4,7 @@
   <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag 'application', media: 'all',
                           'data-turbolinks-track' => true %>
-  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'
+  <link href='https://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet'
         type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag '//maps.google.com/maps/api/js?v=3.18&sensor=false&client=&key=&libraries=geometry&language=&hl=&region=' %>
@@ -13,7 +13,7 @@
   <%= render 'layouts/misc_meta_tags' %>
   <%= render 'layouts/shim' %>
 </head>
-<body>
+<body class="<%= yield(:class) %>">
 
   <%= render 'layouts/header' %>
 
