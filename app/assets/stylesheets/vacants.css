@@ -43,6 +43,9 @@
 	border-style: solid;
 	box-shadow: 2px 2px 10px #B1B1B1;
 	border-width: 7px;
+	max-width: 600px;
+	margin: 0 auto;
+	margin-top: 10px;
 }
 
 #map-canvas {
