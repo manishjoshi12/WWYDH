@@ -5,14 +5,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
-/*.full {
-  background: url('baltimore.jpeg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: 100%;
-}*/
-
+/* Login/Register Form */
 .account-wall
 {
     margin-top: 20px;
@@ -21,9 +14,8 @@
     -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
 }
-
-/*//Register Form*/
 .form-signin
 {
     max-width: 330px;
@@ -65,7 +57,7 @@
     border-top-right-radius: 0;
 }
 
-.form-group{
+.form-signin .form-group{
 	padding: 0px !important;
 	margin: 0px !important;
 }
@@ -80,149 +72,3 @@
     -webkit-border-radius: 50%;
     border-radius: 50%;
 }
-
-
-
-
-
-/*@font-face {
-	font-family: SourceSansPro;
-	src: url('fonts/source-sans-pro/SourceSansPro-Regular.otf');
-}
-@font-face {
-	font-family: SourceSansPro;
-	src: url('fonts/source-sans-pro/SourceSansPro-Bold.otf');
-	font-weight: bold;
-}
-@font-face {
-	font-family: SourceSansPro;
-	src: url('fonts/source-sans-pro/SourceSansPro-Italic.otf');
-	font-style: italic;
-}
-@font-face {
-	font-family: SourceSansPro;
-	src: url('fonts/source-sans-pro/SourceSansPro-BoldItalic.otf');
-	font-weight: bold;
-	font-style: italic;
-}
-@font-face {
-	font-family: SourceSansPro;
-	src: url('fonts/source-sans-pro/SourceSansPro-Light.otf');
-	font-weight: 300;
-}
-@font-face {
-	font-family: SourceSansPro;
-	src: url('fonts/source-sans-pro/SourceSansPro-LightItalic.otf');
-	font-style: italic;
-	font-weight: 300;
-}
-
-html {
-	padding-top: 50px;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  max-width: 100%;
-  color: white;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: 300;
-}
-
-.full {
-  background: url('city.jpeg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-body {
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	margin-top: 50px;
-	margin-bottom: 50px;
-	background: none;
-}
-
-.navbar-brand {
-	padding: 0px;
-}
-
-.navbar-brand>img {
-	height: 100%;
-	padding: 10px;
-	width: auto;
-}
-
-.btn-primary {
-	margin-top: 10px;
-	margin-right: 10px;
-}
-
-.special-img
-{
-	position: relative;
-	top: -5px;
-	float: left;
-	left: -5px;
-}
-.profile-image  {
-	padding-top: 0px;
-	padding-bottom: 0px;
-}
-
-/*
-* Navbar
-
-.navbar-login
-{
-	width: 305px;
-	padding: 10px;
-	padding-bottom: 0px;
-}
-
-.navbar-login-session
-{
-	padding: 10px;
-	padding-bottom: 0px;
-	padding-top: 0px;
-
-}
-.navbar-footer
-{
-	background-color:#DDD;
-}
-
-.dropdown-menu {
-	padding: 0px;
-	overflow: hidden;
-}
-
-.dropdown:hover .dropdown-menu {
-	display: block;
-	margin-top: 0; // remove the gap so it doesn't close
-}
-
-.show {display:block;}
-
-.icon-size
-{
-	font-size: 87px;
-}
-
-img {
-  display: inline-block;
-  height: auto;
-  max-width: 100%;
-}
-
-.icon-size
-{
-	font-size: 87px;
-}
-
-.dropdown-menu li>a:hover{
-	 color:black;
- }
-
-.dropdown-menu li>a{color:gray }*/

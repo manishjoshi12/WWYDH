@@ -1,12 +1,12 @@
-<body class = "full">
-
 <% provide(:title, 'Login') %>
+<% provide(:class, 'full') %>
 
-<div class="account-wall col-sm-4 col-sm-offset-4 form-signin ">
-	<%= image_tag("icongrey.png", :class => "profile-img" )%>
+<div class="account-wall col-sm-4 col-sm-offset-4 form-signin">
+
+	<%= image_tag("icongrey.png", class: "profile-img" )%>
+
 	<h1 class="text-center">Login</h1>
-
-	<!-- <hr> -->
+	
 	<br>
 
 	<%= form_for(:user, url: sessions_path) do |f| %>
@@ -28,4 +28,3 @@
 	</p>
 
 </div>
-</body>
