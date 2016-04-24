@@ -2,16 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
-* {
+/** {
 	box-sizing: border-box;
-}
-
-/*.container {
-	position: relative;
-	background-color: #ffffff;
-	border-radius: 1em;
-	border-width: .2em;
-	margin-bottom: .5em;
 }*/
 
 .address {
