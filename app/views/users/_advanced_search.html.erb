@@ -9,10 +9,6 @@
       <%= form_tag users_path, method: "get", id: "search-form", remote: @remote_flag do %>
         <%= text_field_tag :firstname, params[:firstname], class: "form-control", placeholder: "Search First Name" %><br>
         <%= text_field_tag :lastname, params[:lastname], class: "form-control", placeholder: "Search Last Name" %><br>
-        <%= hidden_field_tag :isadmin, 'false' %>
-        <%= check_box_tag :isadmin, true %>
-        <h4>Admin</h4>
-        <br>
         <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
     </div>

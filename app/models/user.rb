@@ -19,7 +19,6 @@ class User < ActiveRecord::Base
 		else
 			users = User.by_firstname(search_params[:firstname])
 									.by_lastname(search_params[:lastname])
-									.by_isadmin(search_params[:isadmin])
 		end
 
 		users
@@ -50,11 +49,6 @@ class User < ActiveRecord::Base
 	def self.by_lastname(lastname)
 		return User.all unless lastname.present?
 		User.where('lastname ILIKE ?', "%#{lastname}%")
-	end
-
-	def self.by_isadmin(isadmin)
-		return User.all unless isadmin.present?
-		User.where('isadmin = ?', isadmin)
 	end
 
 end
