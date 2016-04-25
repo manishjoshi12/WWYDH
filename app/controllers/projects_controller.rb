@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @vacant = @project.vacant
     @stage = @project.stage
 
     case
