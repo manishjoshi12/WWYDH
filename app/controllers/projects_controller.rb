@@ -9,14 +9,25 @@ class ProjectsController < ApplicationController
                        .paginate(page: params[:page], per_page: 10)
   end
 
-	def show
-		@project = Project.find(params[:id])
-	end
+  def show
+    @project = Project.find(params[:id])
+    @vacant = @project.vacant
+    @stage = @project.stage
+
+    case
+    when @stage == 1
+      project_notion
+    when @stage == 2
+      project_matchmaking
+    when @stage == 3
+      project_implementation
+    else
+      project_completed
+    end
+  end
 
   def new
-    
     @project = Project.new
-    
   end
 
   def create
@@ -32,5 +43,23 @@ class ProjectsController < ApplicationController
 	def project_params
 		params.require(:project).permit(:title, :description, :stage, :vacant_id)
 	end
+
+  protected
+
+  def project_notion
+    render :project_notion
+  end
+
+  def project_matchmaking
+    render :project_matchmaking
+  end
+
+  def project_implementation
+    render :project_implementation
+  end
+
+  def project_completed
+    render :project_completed
+  end
 
 end

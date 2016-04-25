@@ -1,16 +1,17 @@
 <% provide(:title, 'Home') %>
 <% provide(:class, 'full') %>
 
-<div class="jumbotron text-center" style="background: transparent;">
-  <%= image_tag("whitelogo.png", style: "text-align: center;") %>
+<div class="text-center" style="background: transparent;">
+  <%= image_tag("whitelogo.png", style: "text-align: center; padding: 0px;") %>
 </div>
 
+<br>
 <br>
 
 <!-- Begin pills/tabs -->
 <div class="row">
 
-  <div class="col-sm-6 col-sm-offset-3 centered-pills">
+  <div class="col-sm-6 centered-pills">
     <h2 class="text-center" style="color: white;">
       Search for Projects and Locations
     </h2>
@@ -28,7 +29,7 @@
       </li>
     </ul>
 
-    <br>
+    <!-- <br> -->
 
     <div class="tab-content text-center">
       <div id="home" class="tab-pane fade in active">
@@ -41,28 +42,22 @@
 
   </div>
 
+  <div class="col-sm-6" >
+    <h2 class="text-center" style="color: white;">
+      Or Find Locations Near You
+    </h2>
+
+    <br>
+
+    <%= render 'gmaps' %>
+  </div>
+
 </div>
 <!-- End pills/tabs -->
 
 <br>
-
-<div class="container-fluid">
-
-  <div class="row">
-    <div class="col-sm-12">
-      <h1 class="page-header text-center" style="color: white;">
-        Or Find Locations Near You!
-      </h1>
-
-      <%= render 'gmaps' %>
-    </div>
-  </div>
-
-</div>
-
 <br>
 
-<br>
 <!-- Page Content -->
 <div class="container container-gloss">
 
