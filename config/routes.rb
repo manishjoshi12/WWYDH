@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   get '/about' => 'static_pages#about'
-  get '/contact' => 'static_pages#contact'
 
   get '/profile' => 'static_pages#profile'
   get '/editprofile' => 'static_pages#editprofile'
@@ -10,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :projects
   resources :vacants
+  resources :support_tickets
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:index, :show, :new, :create] do
       member do
