@@ -31,7 +31,8 @@
               <i class="fa fa-user"></i> <%= current_user.firstname.capitalize %> <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="#"><i class="fa fa-building-o"></i> My Locations</a></li>
+              <!-- <li><a href="#"><i class="fa fa-building-o"></i> My Locations</a></li> -->
+              <li><%= link_to my_projects_path(current_user.id) do %><i class="fa fa-building-o"></i> My Projects<% end %></li>
               <li><%= link_to user_path(current_user) do %><i class="fa fa-user"></i> My Profile<% end %></li>
               <li><%= link_to editprofile_path(current_user) do %><i class="fa fa-cog"></i> Edit Profile<% end %></li>
               <li role="separator" class="divider"></li>

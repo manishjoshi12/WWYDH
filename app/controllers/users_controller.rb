@@ -13,6 +13,12 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
+  def my_projects
+    # @user = current_user
+    @user = User.find(params[:id])
+    @user_projects = @user.projects
+  end
+
   def new
   	@user = User.new
   end
