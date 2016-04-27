@@ -1,6 +1,8 @@
 class Project < ActiveRecord::Base
   belongs_to :vacant
 
+  has_and_belongs_to_many :users
+
   def self.search(params)
     search_params = get_search_params(params)
 
@@ -11,13 +13,13 @@ class Project < ActiveRecord::Base
                         .by_stage(search_params[:stage])
                         .by_description(search_params[:description])
                         .by_vacant_id(search_params[:vacant_id])
-                        
-                        
+
+
     end
   end
 
- 
-  
+
+
   private
 
   # Expose incoming search parameters
@@ -47,5 +49,5 @@ class Project < ActiveRecord::Base
    def self.by_vacant_id(vacant_id)
     return Project.all unless vacant_id.present?
     Project.where('vacant_id = ?', vacant_id)
-  end 
+  end
 end
