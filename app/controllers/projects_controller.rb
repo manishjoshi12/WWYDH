@@ -43,7 +43,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-		params.require(:project).permit(:title, :description, :stage, :vacant_id)
+		params.require(:project).permit(:title, :description, :vacant_id)
 	end
 
   def project_notion
