@@ -42,8 +42,15 @@
     </div>
     <div class = "comment-vote">
       <h3 class = "listing-heading">Should this happen?</h3>
-      <button type="button" class="btn btn-block btn-primary">30 <i class="fa fa-thumbs-o-up"></i></button>
-      <button type="button" class="btn btn-block btn-danger">4 <i class="fa fa-thumbs-o-down"></i></button>
+      
+      <%= link_to like_project_path(@project), class: "like", method: :put do %>
+      <button type="button" class="btn btn-block btn-primary"><%= @project.get_upvotes.size %> <i class="fa fa-thumbs-o-up"></i></button>
+      <% end %>
+
+
+    <%= link_to dislike_project_path(@project), class: "like", method: :put do %>
+      <button type="button" class="btn btn-block btn-danger"><%= @project.get_downvotes.size %> <i class="fa fa-thumbs-o-down"></i></button>
+      <% end %>
     </div>
   </div>
 </div>
