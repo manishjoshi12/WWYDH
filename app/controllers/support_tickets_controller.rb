@@ -1,5 +1,7 @@
 class SupportTicketsController < ApplicationController
 
+  skip_before_action :ensure_login, only: [:new, :create]
+
   def new
     @ticket = SupportTicket.new
   end
