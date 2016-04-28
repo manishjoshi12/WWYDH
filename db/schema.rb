@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160428164447) do
+ActiveRecord::Schema.define(version: 20160428164756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,9 +33,9 @@ ActiveRecord::Schema.define(version: 20160428164447) do
   end
 
   create_table "support_tickets", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.text     "message"
+    t.string   "name",                       null: false
+    t.string   "email",                      null: false
+    t.text     "message",                    null: false
     t.boolean  "reviewed",   default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
