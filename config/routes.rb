@@ -6,7 +6,13 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
 
-  resources :projects
+  resources :projects do
+    member do
+      put "like" => "projects#upvote"
+      put "dislike" => "projects#downvote"
+    end
+
+  end
   resources :vacants
   resources :support_tickets
   resources :sessions, only: [:new, :create, :destroy]
