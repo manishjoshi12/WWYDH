@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
 
   skip_before_action :ensure_login, only: [:index, :show, :new, :create]
+  before_action :set_project, only: [:upvote, :downvote]
+
 
   def index
     @remote_flag = false
@@ -39,6 +41,23 @@ class ProjectsController < ApplicationController
   		render 'new'
   	end
   end
+
+  def upvote
+      @project.upvote_from current_user
+      redirect_to action: "show", id: @project.id
+
+  end
+
+  def downvote
+      @project.downvote_from current_user
+      redirect_to action: "show", id: @project.id
+  end
+
+  def set_project
+    @project = Project.find(params[:id])
+  end
+
+
 
   private
 
