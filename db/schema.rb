@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160427194450) do
+ActiveRecord::Schema.define(version: 20160428001430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,7 +50,10 @@ ActiveRecord::Schema.define(version: 20160427194450) do
     t.string  "password_digest"
     t.boolean "email_confirmed",             default: false
     t.string  "confirm_token"
+    t.string  "username"
   end
+
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   create_table "vacants", force: :cascade do |t|
     t.string  "full_address"

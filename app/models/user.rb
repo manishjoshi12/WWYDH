@@ -1,11 +1,15 @@
 class User < ActiveRecord::Base
 	has_and_belongs_to_many :projects
 
+	before_save { self.email = email.downcase }
 	has_secure_password
-	validates :firstname, :lastname, :email, :password, presence: true
+	validates :firstname, :lastname, :email, :password, :password_confirmation, presence: true
  	validates :password, confirmation: true
- 	validates :password_confirmation, presence: true
- 	before_create :confirmation_token
+	before_create :confirmation_token
+	validates :username, uniqueness: { case_sensitive: true }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, format: { with: VALID_EMAIL_REGEX },
+                    uniqueness: { case_sensitive: false }
 
  	def email_activate
  		self.email_confirmed = true
