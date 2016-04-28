@@ -13,12 +13,29 @@ class VacantsController < ApplicationController
 
 	def show
 		@vacant = Vacant.find(params[:id])
-		 
-		@projects = Project.search(:vacant_id => @vacant.id)
+
+		@projects = Project.search(vacant_id: @vacant.id)
+	end
+
+	def new
+		@vacant = Vacant.new
+	end
+
+	def create
+		@vacant = Vacant.new(vacant_params)
+		if @vacant.save
+			flash[:success] = "Created new location!"
+			redirect_to root_path
+		else
+			render 'new'
+		end
 	end
 
 	def vacant_params
-		params.require(:vacant).permit(:full_address, :police_district)
+		params.require(:vacant).permit(:full_address, :block, :lot, :zip_code,
+																	 :city, :neighborhood, :police_district,
+																	 :council_district, :longitude, :latitude,
+																	 :owner, :use, :mailing_address)
 	end
 
 end
