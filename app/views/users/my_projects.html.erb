@@ -1,0 +1,12 @@
+<% provide(:title, 'My Projects') %>
+
+<h1>My Projects</h1>
+<h3>
+  <% @user_projects.each do |p| %>
+    <div class="well">
+      <h5>
+        <%= p.title %>
+      </h5>
+    </div>
+  <% end %>
+</h3>

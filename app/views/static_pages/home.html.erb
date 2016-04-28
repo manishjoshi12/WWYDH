@@ -2,7 +2,8 @@
 <% provide(:class, 'full') %>
 
 <div class="text-center" style="background: transparent;">
-  <%= image_tag("whitelogo.png", style: "text-align: center; padding: 0px;") %>
+  <%= image_tag "whitelogo.png", style: "text-align: center; padding: 0px;",
+                                 class: "img-responsive center-block" %>
 </div>
 
 <br>
@@ -187,7 +188,7 @@
       <h3 class="text-center">Locations</h3>
       <ul id="links_from_home" class="text-center">
         <li>
-          <%= link_to 'Submit a location', new_user_path %>
+          <%= link_to 'Submit a location', new_vacant_path %>
         </li>
         <li>
           <%= link_to 'View all locations', vacants_path %>

@@ -12,9 +12,6 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
-  #def register
-  #end
-
   def login
   end
 
@@ -22,6 +19,6 @@ class StaticPagesController < ApplicationController
       @user = User.find(params[:id])
   end
 
-  def editprofile
+  def edit_profile
   end
 end

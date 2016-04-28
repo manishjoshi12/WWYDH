@@ -40,11 +40,11 @@ class ProjectsController < ApplicationController
   	end
   end
 
-	def project_params
+  private
+
+  def project_params
 		params.require(:project).permit(:title, :description, :stage, :vacant_id)
 	end
-
-  protected
 
   def project_notion
     render :project_notion

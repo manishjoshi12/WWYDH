@@ -21,14 +21,15 @@
       <br />
     </div>
     <div class = "col-sm-7" id = "info">
+      <h1 class = "listing-heading text-left" ><%= @project.title %> </h1>
       <h3 class = "listing-heading">Info</h3>
       <p class = "listing-detail">Location: <%= @vacant.full_address %></p>
-      <p class = "listing-detail">Owner: Baltimore County </p>
-      <p class = "listing-detail">Type: Empty Lot/Industrial/House </p>
+      <p class = "listing-detail">Owner: <%= @vacant.owner %> </p>
+      <p class = "listing-detail">Type: <%= @vacant.use %> </p>
       <div class = "property-status">
         <h3 class = "listing-heading">Concept Description</h3>
         <p class = "listing-detail">Project Leader: John Doe</p>
-        <p class = "listing-detail">Create a small fresh food market on the first level of the building.</p>
+        <p class = "listing-detail"><%= @project.description %></p>
         <p class = "listing-detail">Contact <a href="#">John Doe</a> to find out how you can help</p>
       </div>
       <div id = "progress">
