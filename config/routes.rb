@@ -11,10 +11,10 @@ Rails.application.routes.draw do
   resources :support_tickets
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:index, :show, :new, :create] do
-      member do
-        get :confirm_email
-      end
+    member do
+      get :confirm_email
     end
+  end
 
   get "/login" => "sessions#new", as: "login"
   delete "/logout" => "sessions#destroy", as: "logout"
