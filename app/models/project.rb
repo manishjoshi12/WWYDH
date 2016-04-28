@@ -1,7 +1,8 @@
 class Project < ActiveRecord::Base
   belongs_to :vacant
-
   has_and_belongs_to_many :users
+
+  validates_presence_of :vacant_id, :title, :description
 
   def self.search(params)
     search_params = get_search_params(params)
@@ -13,12 +14,8 @@ class Project < ActiveRecord::Base
                         .by_stage(search_params[:stage])
                         .by_description(search_params[:description])
                         .by_vacant_id(search_params[:vacant_id])
-
-
     end
   end
-
-
 
   private
 
