@@ -20,7 +20,7 @@ gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
 gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 gem 'normalize-rails', '~> 3.0', '>= 3.0.3'
 gem 'acts_as_votable'
-
+gem 'acts_as_commentable'
 
 group :development, :test do
   gem 'sqlite3',            '1.3.9'
