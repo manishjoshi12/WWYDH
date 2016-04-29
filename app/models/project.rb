@@ -2,6 +2,7 @@ class Project < ActiveRecord::Base
   belongs_to :vacant
   has_and_belongs_to_many :users
   acts_as_votable
+  acts_as_commentable
 
   validates_presence_of :vacant_id, :title, :description
 
