@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @vacant = @project.vacant
     @stage = @project.stage
+    commontator_thread_show(@project)
     case
     when @stage == 1
       project_notion

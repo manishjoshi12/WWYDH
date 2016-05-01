@@ -59,14 +59,16 @@ ActiveRecord::Schema.define(version: 20160501203937) do
   add_index "commontator_threads", ["commontable_id", "commontable_type"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true, using: :btree
 
   create_table "projects", force: :cascade do |t|
-    t.integer  "stage",       default: 1
-    t.string   "title",                   null: false
-    t.text     "description",             null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "vacant_id",               null: false
+    t.integer  "stage",             default: 1
+    t.string   "title",                         null: false
+    t.text     "description",                   null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "vacant_id",                     null: false
+    t.integer  "project_leader_id"
   end
 
+  add_index "projects", ["project_leader_id"], name: "index_projects_on_project_leader_id", using: :btree
   add_index "projects", ["vacant_id"], name: "index_projects_on_vacant_id", using: :btree
 
   create_table "projects_users", id: false, force: :cascade do |t|
@@ -103,6 +105,7 @@ ActiveRecord::Schema.define(version: 20160501203937) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["project_leader_id"], name: "index_users_on_project_leader_id", using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   create_table "vacants", force: :cascade do |t|
@@ -136,5 +139,8 @@ ActiveRecord::Schema.define(version: 20160501203937) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
+  add_foreign_key "project_leaders", "projects"
+  add_foreign_key "projects", "project_leaders"
   add_foreign_key "projects", "vacants"
+  add_foreign_key "users", "project_leaders"
 end

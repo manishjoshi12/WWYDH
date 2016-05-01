@@ -24,4 +24,7 @@ Rails.application.routes.draw do
   get "/login" => "sessions#new", as: "login"
   delete "/logout" => "sessions#destroy", as: "logout"
   get "/register" => "users#new", as: "register"
+
+
+  mount Commontator::Engine => '/commontator'
 end
