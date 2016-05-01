@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160428224724) do
+ActiveRecord::Schema.define(version: 20160501173411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,15 +31,26 @@ ActiveRecord::Schema.define(version: 20160428224724) do
   add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
-  create_table "projects", force: :cascade do |t|
-    t.integer  "stage",       default: 1
-    t.string   "title",                   null: false
-    t.text     "description",             null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "vacant_id",               null: false
+  create_table "project_leaders", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
+  add_index "project_leaders", ["project_id"], name: "index_project_leaders_on_project_id", using: :btree
+
+  create_table "projects", force: :cascade do |t|
+    t.integer  "stage",             default: 1
+    t.string   "title",                         null: false
+    t.text     "description",                   null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "vacant_id",                     null: false
+    t.integer  "project_leader_id"
+  end
+
+  add_index "projects", ["project_leader_id"], name: "index_projects_on_project_leader_id", using: :btree
   add_index "projects", ["vacant_id"], name: "index_projects_on_vacant_id", using: :btree
 
   create_table "projects_users", id: false, force: :cascade do |t|
@@ -57,18 +68,20 @@ ActiveRecord::Schema.define(version: 20160428224724) do
   end
 
   create_table "users", primary_key: "user_id", force: :cascade do |t|
-    t.string  "firstname",       limit: 255
-    t.string  "lastname",        limit: 255
-    t.boolean "isadmin",                     default: false, null: false
-    t.boolean "isvolunteer",                 default: false, null: false
-    t.string  "email",                                       null: false
+    t.string  "firstname",         limit: 255
+    t.string  "lastname",          limit: 255
+    t.boolean "isadmin",                       default: false, null: false
+    t.boolean "isvolunteer",                   default: false, null: false
+    t.string  "email",                                         null: false
     t.string  "password_digest"
-    t.boolean "email_confirmed",             default: false
+    t.boolean "email_confirmed",               default: false
     t.string  "confirm_token"
-    t.string  "username",                                    null: false
+    t.string  "username",                                      null: false
+    t.integer "project_leader_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["project_leader_id"], name: "index_users_on_project_leader_id", using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   create_table "vacants", force: :cascade do |t|
@@ -102,5 +115,8 @@ ActiveRecord::Schema.define(version: 20160428224724) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
+  add_foreign_key "project_leaders", "projects"
+  add_foreign_key "projects", "project_leaders"
   add_foreign_key "projects", "vacants"
+  add_foreign_key "users", "project_leaders"
 end

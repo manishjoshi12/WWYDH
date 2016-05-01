@@ -27,20 +27,20 @@
 
 	</div>
 
-  
+
 		<div id="vacant-show-map-container">
 		<%= render 'gmaps' %>
 		</div>
-	
+
 
 	<div class="container">
-		
+
 		<h1 >Projects</h1>
-		<div class = "center-text-projects"><%= link_to "Create a project here!", new_project_path(:vacant => @vacant.id) %></span>
-			
+		<div class = "center-text-projects"><%= link_to "Create a project here!", new_project_path(vacant: @vacant) %></span>
+
 			<% unless @projects.present? %>
 				<div>There are no projects at this location yet!</div>
-			<% else %>				
+			<% else %>
 				<% @projects.each do |project| %>
 					<div class="projectInfo">
 					<!--<%= project.title %>-->
@@ -48,6 +48,6 @@
 					</div>
 				<% end %>
 			<% end %>
-	
+
 	</div>
 </section>

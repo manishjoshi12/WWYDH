@@ -1,8 +1,7 @@
 class ProjectsController < ApplicationController
 
-  skip_before_action :ensure_login, only: [:index, :show, :new, :create]
+  skip_before_action :ensure_login, only: [:index, :show]
   before_action :set_project, only: [:upvote, :downvote]
-
 
   def index
     @remote_flag = false
@@ -15,7 +14,6 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @vacant = @project.vacant
     @stage = @project.stage
-
     case
     when @stage == 1
       project_notion
@@ -30,13 +28,14 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    session[:vacant_id] = (params[:vacant]) ? params[:vacant] : session[:vacant_id]
   end
 
   def create
     @project = Project.new(project_params)
   	if @project.save
   		flash[:success] = "Created new project!"
-  		redirect_to root_path
+  		redirect_to @project
   	else
   		render 'new'
   	end
@@ -45,7 +44,6 @@ class ProjectsController < ApplicationController
   def upvote
       @project.upvote_from current_user
       redirect_to action: "show", id: @project.id
-
   end
 
   def downvote
@@ -56,8 +54,6 @@ class ProjectsController < ApplicationController
   def set_project
     @project = Project.find(params[:id])
   end
-
-
 
   private
 

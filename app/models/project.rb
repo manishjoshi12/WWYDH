@@ -1,6 +1,7 @@
 class Project < ActiveRecord::Base
   belongs_to :vacant
   has_and_belongs_to_many :users
+  has_one :project_leader
   acts_as_votable
   acts_as_commentable
 

@@ -25,7 +25,7 @@ class VacantsController < ApplicationController
 		@vacant = Vacant.new(vacant_params)
 		if @vacant.save
 			flash[:success] = "Created new location!"
-			redirect_to root_path
+			redirect_to @vacant
 		else
 			render 'new'
 		end
