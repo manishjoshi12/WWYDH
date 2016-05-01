@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
 	has_and_belongs_to_many :projects
-	belongs_to :project_leader
 	acts_as_voter
 	before_save { self.email = email.downcase }
 	validates :username, :email, presence: true

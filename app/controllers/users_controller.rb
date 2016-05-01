@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-  skip_before_action :ensure_login, only: [:index, :show, :new, :create, :confirm_email]
+  skip_before_action :ensure_login, only: [:index, :show, :new, :create,
+                                           :confirm_email]
 
   def index
     @remote_flag = false
@@ -48,7 +49,8 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:username, :email, :password, :password_confirmation)
+		params.require(:user).permit(:username, :email, :password,
+                                 :password_confirmation)
 	end
 
 end

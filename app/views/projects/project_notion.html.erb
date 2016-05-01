@@ -1,3 +1,5 @@
+<% provide(:title, 'Notion') %>
+
 <div class = "container">
 
   <!--All listing info goes here -->
@@ -21,15 +23,19 @@
     </div>
     <div class = "col-sm-7" id = "info">
       <h1 class = "listing-heading text-left" ><%= @project.title %> </h1>
+      <div class="alert alert-info alert-dismissable" style="display: inline-block;">
+        <a class="panel-close close" data-dismiss="alert"></a>
+        <i class="fa fa-info-circle"></i>
+        This project has no leader!
+      </div>
       <h3 class = "listing-heading">Info</h3>
       <p class = "listing-detail">Location: <%= @vacant.full_address %></p>
       <p class = "listing-detail">Owner: <%= @vacant.owner %> </p>
       <p class = "listing-detail">Type: <%= @vacant.use %> </p>
       <div class = "property-status">
         <h3 class = "listing-heading">Concept Description</h3>
-        <p class = "listing-detail">Project Leader: John Doe</p>
+        <p class = "listing-detail">This project has no leader.</p>
         <p class = "listing-detail"><%= @project.description %></p>
-        <p class = "listing-detail">Contact <a href="#">John Doe</a> to find out how you can help</p>
       </div>
       <div id = "progress">
         <h3 class = "listing-heading tag-heading">Project Progress</h3>
@@ -42,7 +48,7 @@
     </div>
     <div class = "comment-vote">
       <h3 class = "listing-heading">Should this happen?</h3>
-      
+
       <%= link_to like_project_path(@project), class: "like", method: :put do %>
       <button type="button" class="btn btn-block btn-primary"><%= @project.get_upvotes.size %> <i class="fa fa-thumbs-o-up"></i></button>
       <% end %>

@@ -11,7 +11,6 @@ Rails.application.routes.draw do
       put "like" => "projects#upvote"
       put "dislike" => "projects#downvote"
     end
-
   end
   resources :vacants
   resources :support_tickets
