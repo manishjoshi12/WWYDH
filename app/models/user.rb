@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+
+	has_one :project_leader
 	has_and_belongs_to_many :projects
 	acts_as_voter
 	acts_as_commontator

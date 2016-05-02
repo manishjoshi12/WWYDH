@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160501203937) do
+ActiveRecord::Schema.define(version: 20160502200442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,14 @@ ActiveRecord::Schema.define(version: 20160501203937) do
 
   add_index "commontator_threads", ["commontable_id", "commontable_type"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true, using: :btree
 
+  create_table "project_leaders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "project_leaders", ["user_id"], name: "index_project_leaders_on_user_id", using: :btree
+
   create_table "projects", force: :cascade do |t|
     t.integer  "stage",             default: 1
     t.string   "title",                         null: false
@@ -85,7 +93,7 @@ ActiveRecord::Schema.define(version: 20160501203937) do
     t.datetime "updated_at",                 null: false
   end
 
-  create_table "users", primary_key: "user_id", force: :cascade do |t|
+  create_table "users", id: :bigserial, force: :cascade do |t|
     t.string  "firstname",                   limit: 255
     t.string  "lastname",                    limit: 255
     t.boolean "isadmin",                                 default: false, null: false
@@ -105,7 +113,6 @@ ActiveRecord::Schema.define(version: 20160501203937) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["project_leader_id"], name: "index_users_on_project_leader_id", using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   create_table "vacants", force: :cascade do |t|
@@ -139,8 +146,7 @@ ActiveRecord::Schema.define(version: 20160501203937) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
-  add_foreign_key "project_leaders", "projects"
+  add_foreign_key "project_leaders", "users"
   add_foreign_key "projects", "project_leaders"
   add_foreign_key "projects", "vacants"
-  add_foreign_key "users", "project_leaders"
 end
