@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       put "dislike" => "projects#downvote"
     end
   end
+  resources :project_leaders
   resources :vacants
   resources :support_tickets
   resources :sessions, only: [:new, :create, :destroy]

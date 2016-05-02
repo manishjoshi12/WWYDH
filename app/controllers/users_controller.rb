@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def index
     @remote_flag = false
 
-    @users = User.search(params).order("user_id ASC")
+    @users = User.search(params).order("id ASC")
                  .paginate(page: params[:page], per_page: 10)
   end
 

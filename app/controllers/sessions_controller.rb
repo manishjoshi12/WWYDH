@@ -14,10 +14,10 @@ class SessionsController < ApplicationController
   		session[:user_id] = user.id
       flash[:success] = 'Login successful'
       redirect_to root_path
-      else 
+      else
         flash[:error] = "Please activate your account."
       end
-      
+
   		# redirect_to root_path, notice: "Logged in successfully"
   	else
       flash.now[:danger] = 'Invalid email/password combination'

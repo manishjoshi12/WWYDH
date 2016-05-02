@@ -23,11 +23,20 @@
     </div>
     <div class = "col-sm-7" id = "info">
       <h1 class = "listing-heading text-left" ><%= @project.title %> </h1>
-      <div class="alert alert-info alert-dismissable" style="display: inline-block;">
-        <a class="panel-close close" data-dismiss="alert"></a>
-        <i class="fa fa-info-circle"></i>
-        This project has no leader!
-      </div>
+      <% if @project.project_leader %>
+        <div class="alert alert-info alert-dismissable" style="display: inline-block;">
+          <a class="panel-close close" data-dismiss="alert"></a>
+          <i class="fa fa-info-circle"></i>
+          <%= @project.project_leader.user.username %> is leading this project!
+        </div>
+      <% else %>
+        <div class="alert alert-info alert-dismissable" style="display: inline-block;">
+          <a class="panel-close close" data-dismiss="alert"></a>
+          <i class="fa fa-info-circle"></i>
+          This project has no leader! &nbsp
+          <%= button_to 'Lead this project', { controller: "project_leaders", action: "create", project_id: @project.id, user_id: current_user.id } , method: :post, class: "btn btn-primary" %>
+        </div>
+      <% end %>
       <h3 class = "listing-heading">Info</h3>
       <p class = "listing-detail">Location: <%= @vacant.full_address %></p>
       <p class = "listing-detail">Owner: <%= @vacant.owner %> </p>

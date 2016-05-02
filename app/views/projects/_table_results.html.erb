@@ -8,6 +8,7 @@
       <th>ID</th>
       <th>Project Name</th>
       <th>Stage</th>
+      <th>Project Leader</th>
       <th>Description</th>
     </tr>
   </thead>
@@ -19,6 +20,11 @@
           <%= link_to project.title, project_path(id: project.id) %>
         </td>
         <td><%= project.stage %></td>
+        <% if project.project_leader %>
+          <td><%= project.project_leader.user.username %></td>
+        <% else %>
+          <td>No leader!</td>
+        <% end %>
         <td><%= project.description %></td>
       </tr>
     <% end %>
