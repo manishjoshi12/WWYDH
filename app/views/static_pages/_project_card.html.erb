@@ -1,0 +1,11 @@
+<div class="col-md-6 portfolio-item">
+  <a href="#">
+    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+  </a>
+  <h3>
+    <%= link_to "#{item.title}", project_path(item) %>
+    &nbsp
+    <span><small>Stage: <%= item.stage %></small></span>
+  </h3>
+  <p>Description: <%= item.description %></p>
+</div>
