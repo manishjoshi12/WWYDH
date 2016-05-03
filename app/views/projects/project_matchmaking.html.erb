@@ -32,7 +32,7 @@
           <%= @project.project_leader.user.username %> is leading this project!
         </div>
         <br>
-        <% if @project.project_leader.user.id == current_user.id %>
+        <% if current_user && @project.project_leader.user.id == current_user.id %>
           <h4><strong>You're the leader</strong></h4>
           <%= link_to 'Push this project to Stage 3', { controller: 'projects', action: 'push_stage', id: @project.id }, class: 'btn btn-success' %>
         <% end %>
