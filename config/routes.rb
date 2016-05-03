@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/edit_profile/:id' => 'static_pages#edit_profile', as: 'edit_profile'
   get '/my_projects/:id' => 'users#my_projects', as: 'my_projects'
 
+  get '/projects/:id/push_stage' => 'projects#push_stage'
+
   root 'static_pages#home'
 
   resources :projects do
