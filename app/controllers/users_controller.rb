@@ -19,6 +19,19 @@ class UsersController < ApplicationController
     @user_projects = @user.projects
   end
 
+  def add_to_my_projects
+    @my_projects = current_user.projects
+    @project = Project.find(params[:id])
+    if @my_projects.include? @project
+      flash[:error] = "You are already a part of this project!"
+      redirect_to @project
+    else
+      @my_projects << @project
+      flash[:success] = "You have joined this project!"
+      redirect_to @project
+    end
+  end
+
   def new
   	@user = User.new
   end

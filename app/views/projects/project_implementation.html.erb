@@ -53,6 +53,9 @@
         </div>
       </div>
     </div>
+    <% if current_user && !current_user.projects.include?(@project) %>
+      <%= link_to 'Join this project', { controller: "users", action: "add_to_my_projects", id: @project.id }, class: "btn btn-primary" %>
+    <% end %>
       <h3 class = "listing-heading">Info</h3>
       <p class = "listing-detail">Location: <%= @vacant.full_address %></p>
       <p class = "listing-detail">Owner: <%= @vacant.owner %> </p>
