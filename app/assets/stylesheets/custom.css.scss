@@ -138,6 +138,20 @@ ul {
   background-size: cover;
 }
 
+.full2 {
+  background: image-url('brickwall.png') center center fixed;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+}
+
+.style_image {
+  border-right:  2px solid #000;
+  border-left:   2px solid #000;
+  border-top:    2px solid #000;
+  border-bottom: 2px solid #000;
+}
+
 // Navbar
 
 #custom-navbar {

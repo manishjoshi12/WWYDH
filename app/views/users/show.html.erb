@@ -1,4 +1,5 @@
 <% provide(:title, "#{@user.firstname.capitalize} #{@user.lastname.capitalize}\'s Profile | WWYDH") %>
+<% provide(:class, 'full2') %>
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,7 +27,7 @@
               <div class="col-xs-12 col-sm-8">
                 <h2><%= "#{@user.firstname.capitalize} #{@user.lastname.capitalize}" %></h2>
                 <p><strong>Location: </strong> Towson, MD </p>
-                <p><strong>Contact email: </strong><%= @user.email %></p>
+                <!-- <p><strong>Contact email: </strong><%= @user.email %></p> -->
                 <p><strong>Currently interested in: </strong> Opening up a restaurant </p>
                 <p><strong>Skills: </strong>
 

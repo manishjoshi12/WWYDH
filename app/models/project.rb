@@ -1,4 +1,6 @@
 class Project < ActiveRecord::Base
+
+  belongs_to :project_leader
   belongs_to :vacant
   has_and_belongs_to_many :users
   acts_as_votable
@@ -49,4 +51,5 @@ class Project < ActiveRecord::Base
     return Project.all unless vacant_id.present?
     Project.where('vacant_id = ?', vacant_id)
   end
+
 end

@@ -42,6 +42,13 @@ class ProjectsController < ApplicationController
   	end
   end
 
+  def push_stage
+    @project = Project.find(params[:id])
+    @project.update_attribute(:stage, @project.stage + 1)
+    flash[:success] = "You have pushed this project to stage #{@project.stage}"
+    redirect_to @project
+  end
+
   def upvote
       @project.upvote_from current_user
       redirect_to action: "show", id: @project.id

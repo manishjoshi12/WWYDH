@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
   respond_to :js
 
   def home
+    @projects = Project.take(4)
   end
 
   def about

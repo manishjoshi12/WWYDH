@@ -1,4 +1,5 @@
 <% provide(:title, 'Notion') %>
+<% provide(:class, 'full2') %>
 
 <div class = "container">
 
@@ -23,20 +24,25 @@
     </div>
     <div class = "col-sm-7" id = "info">
       <h1 class = "listing-heading text-left" ><%= @project.title %> </h1>
-      <div class="alert alert-info alert-dismissable" style="display: inline-block;">
-        <a class="panel-close close" data-dismiss="alert"></a>
-        <i class="fa fa-info-circle"></i>
-        This project has no leader!
-      </div>
-      <h3 class = "listing-heading">Info</h3>
-      <p class = "listing-detail">Location: <%= @vacant.full_address %></p>
-      <p class = "listing-detail">Owner: <%= @vacant.owner %> </p>
-      <p class = "listing-detail">Type: <%= @vacant.use %> </p>
-      <div class = "property-status">
-        <h3 class = "listing-heading">Concept Description</h3>
-        <p class = "listing-detail">This project has no leader.</p>
-        <p class = "listing-detail"><%= @project.description %></p>
-      </div>
+      <% if @project.project_leader %>
+        <div class="alert alert-info alert-dismissable" style="display: inline-block;">
+          <a class="panel-close close" data-dismiss="alert"></a>
+          <i class="fa fa-info-circle"></i>
+          <%= @project.project_leader.user.username %> is leading this project!
+        </div>
+        <br>
+        <% if @project.project_leader.user.id == current_user.id %>
+          <h4><strong>You're the leader</strong></h4>
+          <%= link_to 'Push this project to Stage 2', { controller: 'projects', action: 'push_stage', id: @project.id }, class: 'btn btn-success' %>
+        <% end %>
+      <% else %>
+        <div class="alert alert-info alert-dismissable" style="display: inline-block;">
+          <a class="panel-close close" data-dismiss="alert"></a>
+          <i class="fa fa-info-circle"></i>
+          This project has no leader! &nbsp
+          <%= button_to 'Lead this project', { controller: "project_leaders", action: "create", project_id: @project.id, user_id: current_user.id } , method: :post, class: "btn btn-primary" %>
+        </div>
+      <% end %>
       <div id = "progress">
         <h3 class = "listing-heading tag-heading">Project Progress</h3>
         <div class = "progress">
@@ -46,6 +52,15 @@
         </div>
       </div>
     </div>
+      <h3 class = "listing-heading">Info</h3>
+      <p class = "listing-detail">Location: <%= @vacant.full_address %></p>
+      <p class = "listing-detail">Owner: <%= @vacant.owner %> </p>
+      <p class = "listing-detail">Type: <%= @vacant.use %> </p>
+      <div class = "property-status">
+        <h3 class = "listing-heading">Concept Description</h3>
+        <p class = "listing-detail">This project has no leader.</p>
+        <p class = "listing-detail"><%= @project.description %></p>
+      </div>
     <div class = "comment-vote">
       <h3 class = "listing-heading">Should this happen?</h3>
 

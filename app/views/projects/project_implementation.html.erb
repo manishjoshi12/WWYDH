@@ -1,3 +1,6 @@
+<% provide(:title, 'Project Implementation') %>
+<% provide(:class, 'full2') %>
+
 <div class = "container">
 
   <!--All listing info goes here -->
@@ -22,6 +25,34 @@
     </div>
     <div class = "col-sm-7" id = "info">
       <h1 class = "listing-heading text-left" ><%= @project.title %> </h1>
+      <% if @project.project_leader %>
+        <div class="alert alert-info alert-dismissable" style="display: inline-block;">
+          <a class="panel-close close" data-dismiss="alert"></a>
+          <i class="fa fa-info-circle"></i>
+          <%= @project.project_leader.user.username %> is leading this project!
+        </div>
+        <br>
+        <% if @project.project_leader.user.id == current_user.id %>
+          <h4><strong>You're the leader</strong></h4>
+          <%= link_to 'This project is complete', { controller: 'projects', action: 'push_stage', id: @project.id }, class: 'btn btn-success' %>
+        <% end %>
+      <% else %>
+        <div class="alert alert-info alert-dismissable" style="display: inline-block;">
+          <a class="panel-close close" data-dismiss="alert"></a>
+          <i class="fa fa-info-circle"></i>
+          This project has no leader! &nbsp
+          <%= button_to 'Lead this project', { controller: "project_leaders", action: "create", project_id: @project.id, user_id: current_user.id } , method: :post, class: "btn btn-primary" %>
+        </div>
+      <% end %>
+      <div id = "progress">
+        <h3 class = "listing-heading tag-heading">Project Progress</h3>
+        <div class = "progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar"
+          aria-valuenow="40" aria-valuemin="0" aria-valuemax="6" style="width:75%">
+          Stage 3 (implementation)
+        </div>
+      </div>
+    </div>
       <h3 class = "listing-heading">Info</h3>
       <p class = "listing-detail">Location: <%= @vacant.full_address %></p>
       <p class = "listing-detail">Owner: <%= @vacant.owner %> </p>
@@ -32,15 +63,6 @@
         <p class = "listing-detail"><%= @project.description %></p>
         <p class = "listing-detail">Contact <a href="#">John Doe</a> to find out how you can help</p>
       </div>
-      <div id = "progress">
-        <h3 class = "listing-heading tag-heading">Project Progress</h3>
-        <div class = "progress">
-          <div class="progress-bar progress-bar-striped active" role="progressbar"
-          aria-valuenow="40" aria-valuemin="0" aria-valuemax="6" style="width:75%">
-          Stage 3 (implementation)
-        </div>
-      </div>
-    </div>
   </div>
   <div class = "col-md-7">
     <br>
