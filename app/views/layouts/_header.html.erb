@@ -26,7 +26,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
           <!-- Begin Dropdown -->
-          <li class="dropdown">
+          <li id="dropdown_toggle" class="dropdown">
             <a href="#" class="dropdown" id="user_dropdown" data-toggle="dropdown" role="button">
               <i class="fa fa-user"></i> <%= current_user.username %> <span class="caret"></span>
             </a>
