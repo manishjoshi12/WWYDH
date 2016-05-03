@@ -1,10 +1,5 @@
-<% provide(:title, "#{@user.firstname.capitalize} #{@user.lastname.capitalize}\'s Profile | WWYDH") %>
+<% provide(:title, "#{@user.username}\'s Profile") %>
 <% provide(:class, 'full2') %>
-
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <![endif]-->
 
   <div class="container">
     <div class="row">
@@ -25,7 +20,10 @@
               </div>
               <!--/col-->
               <div class="col-xs-12 col-sm-8">
-                <h2><%= "#{@user.firstname.capitalize} #{@user.lastname.capitalize}" %></h2>
+                <h2><%= @user.username %></h2>
+                <% if @user.firstname && @user.lastname %>
+                  <h3><%= "#{@user.firstname.capitalize} #{@user.lastname.capitalize}" %></h3>
+                <% end %>
                 <p><strong>Location: </strong> Towson, MD </p>
                 <!-- <p><strong>Contact email: </strong><%= @user.email %></p> -->
                 <p><strong>Currently interested in: </strong> Opening up a restaurant </p>
