@@ -1,28 +1,24 @@
 <% provide(:title, 'Project Implementation') %>
 <% provide(:class, 'full2') %>
-
+<h1 class = "listing-heading text-center" ><%= @project.title %> </h1>
 <div class = "container">
-
   <!--All listing info goes here -->
   <div class = "row" id = "listing">
     <div class = "col-sm-5 text-center" id ="photos">
+      </br>
       <img class = "img-responsive dropshadowclass" src = "http://cdn.baltimore.org/sites/default/master/files/carousel/city-crop.jpg" id = "listing-photo">
-
       <div class = "text-center">
         <button id = "camera-button" type = "button" class = "btn btn-default"><i class = "fa fa-camera"></i></button>
       </div>
       <div class="text-center center-block">
         <br />
         <h1 style="font-size:150%;"> Share this project! </h1>
-
         <a href="https://www.facebook.com"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
         <a href="https://twitter.com"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
         <a href="https://plus.google.com"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
         <a href="mailto:wwydh@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
       </div>
-
       <br />
-
       <% if @project.users.any? %>
         <div class="well">
           <h3>Users in this project:</h3>
@@ -35,7 +31,7 @@
       <% end %>
     </div>
     <div class = "col-sm-7" id = "info">
-      <h1 class = "listing-heading text-left" ><%= @project.title %> </h1>
+      <div class="account-wall col-lg-10 col-sm-12 col-sm-offset-1 col-md-offset-1">
       <% if @project.project_leader %>
         <div class="alert alert-info alert-dismissable" style="display: inline-block;">
           <a class="panel-close close" data-dismiss="alert"></a>
@@ -84,9 +80,9 @@
     <br>
     <button type="submit" class="btn btn-success">Submit Progress Report</button>
   </div>
+  </div>
 </div>
 <!--End of listing info -->
-
 <!--Beginning of comments section -->
 <br>
 <div class="row">
@@ -113,25 +109,20 @@
           <span class="glyphicon glyphicon-time"></span>14 mins ago</small>
         </br>
         <li class="ui-state-default">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
-
       </ul>
     </div>
   </div>
-
   <div class="container-small">
     <div class="panel panel-default">
       <div class="panel-heading">Progess Reports</div>
-
       <form>
         <div class="form-group">
           <div class="control"></div>
         </div>
         <div class="form-group">
           <h4>Recent Activity</h4>
-
           <div class="table-responsive">
             <table class="table table-hover">
-
               <tbody>
                 <tr>
                   <td><i class="pull-right fa fa-edit"></i> Today, 1:00 - Jeff Manzi commented on your idea.</td>
