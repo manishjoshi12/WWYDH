@@ -21,6 +21,17 @@
       </div>
 
       <br />
+
+      <% if @project.users.any? %>
+        <div class="well">
+          <h3>Users in this project:</h3>
+          <ul class="text-center">
+            <% @project.users.each do |u| %>
+              <li class="text-center"><%= link_to u.username, user_path(u) %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
     </div>
     <div class = "col-sm-7" id = "info">
       <h1 class = "listing-heading text-left" ><%= @project.title %></h1>
