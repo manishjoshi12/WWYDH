@@ -7,8 +7,7 @@
       <% if request.path.include?('users') then @remote_flag = true end %>
 
       <%= form_tag users_path, method: "get", id: "search-form", remote: @remote_flag do %>
-        <%= text_field_tag :firstname, params[:firstname], class: "form-control", placeholder: "First Name" %><br>
-        <%= text_field_tag :lastname, params[:lastname], class: "form-control", placeholder: "Last Name" %><br>
+        <%= text_field_tag :username, params[:username], class: "form-control", placeholder: "Username " %><br>
         <%= submit_tag "Search", class: "btn btn-success" %>
       <% end %>
     </div>

@@ -21,5 +21,6 @@ class StaticPagesController < ApplicationController
   end
 
   def edit_profile
+    @user = User.find(params[:id])
   end
 end

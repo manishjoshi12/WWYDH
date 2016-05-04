@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
 		else
 			users = User.by_firstname(search_params[:firstname])
 									.by_lastname(search_params[:lastname])
+									.by_username(search_params[:username])
 		end
 
 		users
@@ -43,7 +44,7 @@ class User < ActiveRecord::Base
 	# Expose incoming search parameters
 
 	def self.get_search_params(params)
-    sliced = params.compact.slice(:firstname, :lastname, :isadmin)
+    sliced = params.compact.slice(:firstname, :lastname, :isadmin, :username)
 		sliced.delete_if { |k, v| v.blank? }
   end
 
@@ -57,6 +58,10 @@ class User < ActiveRecord::Base
 	def self.by_lastname(lastname)
 		return User.all unless lastname.present?
 		User.where('lastname ILIKE ?', "%#{lastname}%")
+	end
+	def self.by_username(username)
+		return User.all unless username.present?
+		User.where('username ILIKE ?', "%#{username}%")
 	end
 
 end
