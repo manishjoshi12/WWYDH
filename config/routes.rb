@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get '/projects/:id/push_stage' => 'projects#push_stage'
 
+  get '/users/add_to_my_projects' => 'users#add_to_my_projects'
+
   root 'static_pages#home'
 
   resources :projects do
